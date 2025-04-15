@@ -128,7 +128,7 @@ export const components = {
         <a
           href={value?.href || "#"}
           rel={rel}
-          className="underline underline-offset-2 decoration-yellow decoration-2"
+          className="underline underline-offset-2 decoration-yellow decoration-2 whitespace-wrap break-all"
         >
           {children}
         </a>

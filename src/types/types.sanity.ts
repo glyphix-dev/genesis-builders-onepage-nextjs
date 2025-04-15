@@ -322,6 +322,8 @@ export type SlideshowBlock = {
 
 export type Bento2Block = {
   _type: 'bento2Block'
+  heading?: string
+  level?: 1 | 2 | 3 | 4 | 5 | 6
   left?: Array<
     | {
       children?: Array<{

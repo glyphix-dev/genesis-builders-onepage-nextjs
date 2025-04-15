@@ -38,13 +38,10 @@ export default async function Page({ params }: PageProps) {
     <Layout>
       <Container>
         <LayoutHeader title={data?.title || "Untitled"} />
-        <Content hasAside>
-          <Main hasAside>
+        <Content>
+          <Main>
             {data.body && <SanityContent content={data.body} />}
           </Main>
-          <Aside>
-            content aside
-          </Aside>
         </Content>
       </Container>
     </Layout>
