@@ -3,7 +3,7 @@ import { HeroBlock as HeroBlockType, BlockContent } from '@/types/types.sanity';
 import SanityContent from '../SanityContent';
 import Image from 'next/image'
 import { getImageData } from '@/lib/utils';
-import { TextSize } from '@/types/types.custom';
+// import { TextSize } from '@/types/types.custom';
 interface IHeroBlockProps {
   value: HeroBlockType
 }
