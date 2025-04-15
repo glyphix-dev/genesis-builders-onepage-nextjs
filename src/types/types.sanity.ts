@@ -68,6 +68,197 @@ export type Geopoint = {
   alt?: number
 }
 
+export type CallToActionBlock = {
+  _type: 'callToActionBlock'
+  layout?: 'left' | 'right'
+  body?: Array<
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | ({
+      _key: string
+    } & CarouselBlock)
+    | ({
+      _key: string
+    } & ContentBlock)
+    | ({
+      _key: string
+    } & YoutubeBlock)
+    | ({
+      _key: string
+    } & FeaturesBlock)
+    | ({
+      _key: string
+    } & Bento2Block)
+    | ({
+      _key: string
+    } & SlideshowBlock)
+    | ({
+      _key: string
+    } & GalleryBlock)
+    | ({
+      _key: string
+    } & TestimonialBlock)
+    | ({
+      _key: string
+    } & HeroBlock)
+    | ({
+      _key: string
+    } & LogoParadeBlock)
+    | ({
+      _key: string
+    } & StatsBlock)
+    | ({
+      _key: string
+    } & CallToActionBlock)
+  >
+  formDisplay?: 'inline' | 'modal'
+  buttonText?: string
+  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+}
+
+export type StatsBlock = {
+  _type: 'statsBlock'
+  title?: string
+  stats?: Array<{
+    value?: string
+    title?: string
+    _type: 'stat'
+    _key: string
+  }>
+}
+
+export type LogoParadeBlock = {
+  _type: 'logoParadeBlock'
+  images?: Array<{
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
+}
+
+export type HeroBlock = {
+  _type: 'heroBlock'
+  valueProposition?: Array<
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | ({
+      _key: string
+    } & CarouselBlock)
+    | ({
+      _key: string
+    } & ContentBlock)
+    | ({
+      _key: string
+    } & YoutubeBlock)
+    | ({
+      _key: string
+    } & FeaturesBlock)
+    | ({
+      _key: string
+    } & Bento2Block)
+    | ({
+      _key: string
+    } & SlideshowBlock)
+    | ({
+      _key: string
+    } & GalleryBlock)
+    | ({
+      _key: string
+    } & TestimonialBlock)
+    | ({
+      _key: string
+    } & HeroBlock)
+    | ({
+      _key: string
+    } & LogoParadeBlock)
+    | ({
+      _key: string
+    } & StatsBlock)
+    | ({
+      _key: string
+    } & CallToActionBlock)
+  >
+  image?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+}
+
 export type TestimonialBlock = {
   _type: 'testimonialBlock'
   quote?: string
@@ -81,6 +272,7 @@ export type TestimonialBlock = {
         _weak?: boolean
         [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      media?: unknown
       hotspot?: SanityImageHotspot
       crop?: SanityImageCrop
       _type: 'image'
@@ -91,7 +283,7 @@ export type TestimonialBlock = {
 
 export type GalleryBlock = {
   _type: 'galleryBlock'
-  usePageGallery?: boolean
+  title?: string
   images?: Array<{
     asset?: {
       _ref: string
@@ -99,6 +291,7 @@ export type GalleryBlock = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
@@ -117,6 +310,7 @@ export type SlideshowBlock = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
@@ -128,36 +322,75 @@ export type SlideshowBlock = {
 
 export type Bento2Block = {
   _type: 'bento2Block'
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
+  left?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
       _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
-  image?: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }
+  >
+  right?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }
+  >
   reverse?: boolean
+  offset?: boolean
+  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
 export type FeaturesBlock = {
@@ -171,6 +404,7 @@ export type FeaturesBlock = {
         _weak?: boolean
         [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      media?: unknown
       hotspot?: SanityImageHotspot
       crop?: SanityImageCrop
       _type: 'image'
@@ -186,6 +420,45 @@ export type YoutubeBlock = {
   url?: string
 }
 
+export type ContentBlock = {
+  _type: 'contentBlock'
+  content?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+      _key: string
+    }
+  >
+  align?: 'start' | 'center' | 'end'
+  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+}
+
 export type CarouselBlock = {
   _type: 'carouselBlock'
   title?: string
@@ -197,23 +470,12 @@ export type CarouselBlock = {
         _weak?: boolean
         [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      media?: unknown
       hotspot?: SanityImageHotspot
       crop?: SanityImageCrop
       _type: 'image'
     }
     body?: Array<
-      | {
-        asset?: {
-          _ref: string
-          _type: 'reference'
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-        }
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        _type: 'image'
-        _key: string
-      }
       | {
         children?: Array<{
           marks?: Array<string>
@@ -232,33 +494,27 @@ export type CarouselBlock = {
         _type: 'block'
         _key: string
       }
-      | ({
+      | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
         _key: string
-      } & CarouselBlock)
-      | ({
-        _key: string
-      } & YoutubeBlock)
-      | ({
-        _key: string
-      } & FeaturesBlock)
-      | ({
-        _key: string
-      } & Bento2Block)
-      | ({
-        _key: string
-      } & SlideshowBlock)
-      | ({
-        _key: string
-      } & GalleryBlock)
-      | ({
-        _key: string
-      } & TestimonialBlock)
+      }
     >
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     _key: string
   }>
   autoplay?: boolean
-  interval?: number
 }
+
+export type TextSize = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
 export type Settings = {
   _id: string
@@ -275,6 +531,7 @@ export type Settings = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
@@ -351,6 +608,7 @@ export type Settings = {
         _weak?: boolean
         [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      media?: unknown
       hotspot?: SanityImageHotspot
       crop?: SanityImageCrop
       _type: 'image'
@@ -361,6 +619,40 @@ export type Settings = {
   }>
 }
 
+export type BasicBlockContent = Array<
+  | {
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }
+  | {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }
+>
+
 export type BlockContent = Array<
   | {
     asset?: {
@@ -369,6 +661,7 @@ export type BlockContent = Array<
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
@@ -397,6 +690,9 @@ export type BlockContent = Array<
   } & CarouselBlock)
   | ({
     _key: string
+  } & ContentBlock)
+  | ({
+    _key: string
   } & YoutubeBlock)
   | ({
     _key: string
@@ -413,42 +709,71 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & TestimonialBlock)
+  | ({
+    _key: string
+  } & HeroBlock)
+  | ({
+    _key: string
+  } & LogoParadeBlock)
+  | ({
+    _key: string
+  } & StatsBlock)
+  | ({
+    _key: string
+  } & CallToActionBlock)
 >
 
-export type Post = {
-  _id: string
-  _type: 'post'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  date?: string
-  title?: string
-  slug?: Slug
-  description?: string
-  categories?: Array<
-    {
-      _key: string
-    } & Tag
-  >
-  tags?: Array<
-    {
-      _key: string
-    } & Tag
-  >
-  body?: BlockContent
-  gallery?: Array<{
+export type LandingPageContent = Array<
+  | {
     asset?: {
       _ref: string
       _type: 'reference'
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
     _key: string
-  }>
-}
+  }
+  | ({
+    _key: string
+  } & CarouselBlock)
+  | ({
+    _key: string
+  } & ContentBlock)
+  | ({
+    _key: string
+  } & YoutubeBlock)
+  | ({
+    _key: string
+  } & FeaturesBlock)
+  | ({
+    _key: string
+  } & Bento2Block)
+  | ({
+    _key: string
+  } & SlideshowBlock)
+  | ({
+    _key: string
+  } & GalleryBlock)
+  | ({
+    _key: string
+  } & TestimonialBlock)
+  | ({
+    _key: string
+  } & HeroBlock)
+  | ({
+    _key: string
+  } & LogoParadeBlock)
+  | ({
+    _key: string
+  } & StatsBlock)
+  | ({
+    _key: string
+  } & CallToActionBlock)
+>
 
 export type Page = {
   _id: string
@@ -468,6 +793,7 @@ export type Page = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: 'image'
@@ -484,50 +810,7 @@ export type Home = {
   date?: string
   title?: string
   description?: string
-  body?: BlockContent
-  sections?: Array<{
-    name?: string
-    template?: 'hero' | 'content' | 'gallery' | 'contact' | 'carousel' | 'bento'
-    image?: {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-    }
-    content?: BlockContent
-    gallery?: Array<{
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }>
-    reverse?: boolean
-    _type: 'section'
-    _key: string
-  }>
-  gallery?: Array<{
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }>
+  body?: LandingPageContent
 }
 
 export type SanityImageCrop = {

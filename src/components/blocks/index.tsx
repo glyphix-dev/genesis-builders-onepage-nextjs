@@ -1,4 +1,4 @@
-import type { CarouselBlock as CarouselBlockType, SlideshowBlock as SlideshowBlockType, Bento2Block as Bento2BlockType, YoutubeBlock as YoutubeBlockType, FeaturesBlock as FeaturesBlockType, TestimonialBlock, GalleryBlock as GalleryBlockType } from "@/types/types.sanity";
+import type { ContentBlock as ContentBlockType, HeroBlock as HeroBlockType, CarouselBlock as CarouselBlockType, SlideshowBlock as SlideshowBlockType, Bento2Block as Bento2BlockType, YoutubeBlock as YoutubeBlockType, FeaturesBlock as FeaturesBlockType, TestimonialBlock, GalleryBlock as GalleryBlockType, CallToActionBlock as CallToActionBlockType, LogoParadeBlock as LogoParadeBlockType, StatsBlock as StatsBlockType } from "@/types/types.sanity";
 import type { IImageBlockProps } from "./ImageBlock";
 import { v4 as uuidv4 } from 'uuid';
 import { ImageBlock } from "./ImageBlock";
@@ -9,13 +9,17 @@ import YouTube from "./YouTube";
 import GalleryBlock from "./GalleryBlock";
 import TestimonialBlockComponent from "./TestimonialBlock";
 import CarouselBlock from "./CarouselBlock";
-
+import HeroBlock from "./HeroBlock";
+import ContentBlock from "./ContentBlock";
+import CallToActionBlock from "./CallToActionBlock";
+import LogoParadeBlock from "./LogoParadeBlock";
+import StatsBlock from "./StatsBlock";
 interface IBlock {
   children?: React.ReactNode
 }
 
 const Block = ({ children }: IBlock) => {
-  return <div id={uuidv4()} className="my-16">{children}</div>
+  return <div id={uuidv4()} className="my-32">{children}</div>
 }
 
 export const components = {
@@ -76,6 +80,41 @@ export const components = {
       return (
         <Block>
           <CarouselBlock value={value} />
+        </Block>
+      );
+    },
+    heroBlock: ({ value }: { value: HeroBlockType }) => {
+      return (
+        <Block>
+          <HeroBlock value={value} />
+        </Block>
+      );
+    },
+    contentBlock: ({ value }: { value: ContentBlockType }) => {
+      return (
+        <Block>
+          <ContentBlock value={value} />
+        </Block>
+      );
+    },
+    callToActionBlock: ({ value }: { value: CallToActionBlockType }) => {
+      return (
+        <Block>
+          <CallToActionBlock value={value} />
+        </Block>
+      );
+    },
+    logoParadeBlock: ({ value }: { value: LogoParadeBlockType }) => {
+      return (
+        <Block>
+          <LogoParadeBlock value={value} />
+        </Block>
+      );
+    },
+    statsBlock: ({ value }: { value: StatsBlockType }) => {
+      return (
+        <Block>
+          <StatsBlock value={value} />
         </Block>
       );
     },

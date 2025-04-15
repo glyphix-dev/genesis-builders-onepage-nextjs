@@ -26,10 +26,10 @@ const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false,
       <div id={id} className="flex justify-between items-center relative py-4">
         <Logo />
         <NavBar className="hidden md:block" menu={mainMenu} />
-        <SearchForm className="hidden md:flex" />
-        <MobileMenu menu={mobileMenu}>
+        {/* <SearchForm className="hidden md:flex" /> */}
+        {/* <MobileMenu menu={mobileMenu}>
           <Logo />
-        </MobileMenu>
+        </MobileMenu> */}
       </div>
     </Container>)
   }

@@ -8,7 +8,7 @@ interface IContainerProps {
 
 const Container: React.FunctionComponent<IContainerProps> = ({ children, className }) => {
   return (
-    <div className={cn("container mx-auto max-w-4xl px-8 relative", className)}>
+    <div className={cn("container mx-auto max-w-6xl px-8 relative", className)}>
       {children}
     </div>
   );

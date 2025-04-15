@@ -4,19 +4,20 @@ import createImageUrlBuilder from '@sanity/image-url'
 import * as React from 'react';
 import { PortableText } from '@portabletext/react';
 import SanityImage, { ISanityImageProps } from '../SanityImage';
+import SanityContent from '../SanityContent';
+import { TextSize } from '@/types/types.custom';
 
 const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
-  const { content, image, reverse } = props;
-  if (!image) return null;
-  const imageUrl = createImageUrlBuilder(client).image(image).width(500).height(500).fit('max').url();
+  const { left, right, reverse, offset, textSize } = props;
+  if (!left && !right) return null;
 
   return (
-    <div className={`flex items-center flex-col md:flex-row md:gap-16 ${reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'}`}>
-      <div className="basis-1/2">
-        {content && <PortableText value={content} />}
+    <div className={`content-block flex items-center flex-col md:flex-row md:gap-16 ${reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'}`}>
+      <div className={`${offset ? 'basis-2/3' : 'basis-1/2'}`}>
+        {left && <SanityContent content={left} size={textSize as keyof typeof TextSize} />}
       </div>
-      <div className="basis-1/2">
-        {image && imageUrl && <SanityImage image={image as unknown as ISanityImageProps['image']} alt={"Bento Image"} width={500} height={500} />}
+      <div className={`${offset ? 'basis-1/3' : 'basis-1/2'}`}>
+        {right && <SanityContent content={right} size={textSize as keyof typeof TextSize} />}
       </div>
     </div>
   );

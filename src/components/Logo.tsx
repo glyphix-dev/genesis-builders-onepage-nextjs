@@ -14,7 +14,7 @@ interface ILogoProps {
 }
 
 const Logo: React.FunctionComponent<ILogoProps> = async ({ className }) => {
-  const { logo, siteTitle } = await client.fetch(queries.settings.logo, {}, revalidate);
+  const { logo, title } = await client.fetch(queries.settings.logo, {}, revalidate);
   return (
     <div className={cn("text-2xl font-bold", className)}>
       <Link href="/">
@@ -28,7 +28,7 @@ const Logo: React.FunctionComponent<ILogoProps> = async ({ className }) => {
             height={200}
           />
         ) : (
-          <span>{siteTitle || 'Untitled'}</span>
+          <span>{title || 'Untitled'}</span>
         )}
       </Link>
     </div>

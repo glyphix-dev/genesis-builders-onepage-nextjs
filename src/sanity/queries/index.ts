@@ -32,6 +32,7 @@ export const getDependencies = (tag: QueryTypes) => {
 export const getRevalidation = (tag: QueryTypes) => {
   return {
     next: {
+      cache: process.env.NODE_ENV === "production" ? "force-cache" : "no-store",
       revalidate: process.env.NODE_ENV === "production" ? 2.628e9 : 0,
       tags: getQueryTags(tag),
     },
