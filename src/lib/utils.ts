@@ -41,8 +41,8 @@ export const isSquare = async (width: number, height: number) => {
   return aspectRatio === 1;
 }
 
-export const getImageData = async ({ asset, width }: { asset: SanityAsset, width: number }) => {
-  const imageUrl = urlBuilder(client).image(asset).width(width || 800).dpr(2).auto('format').fit('max').url();
+export const getImageData = async ({ asset, width, height }: { asset: SanityAsset, width?: number, height?: number }) => {
+  const imageUrl = urlBuilder(client).image(asset).width(width || 800).height(height || 600).dpr(2).auto('format').fit('max').url();
   const imageData = await client.fetch(`*[_id == $id][0]`, { id: asset._ref });
   return { ...imageData, url: imageUrl, };
 }
