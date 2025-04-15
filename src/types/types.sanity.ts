@@ -322,8 +322,16 @@ export type SlideshowBlock = {
 
 export type Bento2Block = {
   _type: 'bento2Block'
-  heading?: string
-  level?: 1 | 2 | 3 | 4 | 5 | 6
+  heading?: {
+    text?: string
+    level?: 1 | 2 | 3 | 4 | 5 | 6
+  }
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    offset?: boolean
+    reverse?: boolean
+  }
   left?: Array<
     | {
       children?: Array<{
@@ -390,9 +398,6 @@ export type Bento2Block = {
       _key: string
     }
   >
-  reverse?: boolean
-  offset?: boolean
-  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
 export type FeaturesBlock = {

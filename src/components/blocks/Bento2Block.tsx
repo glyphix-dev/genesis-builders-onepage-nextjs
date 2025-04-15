@@ -4,19 +4,24 @@ import SanityContent from '../SanityContent';
 import { TextSize } from '@/types/types.custom';
 import { cn } from '@/lib/utils';
 import Heading from '../Heading';
-const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
-  const { left, right, reverse, offset, textSize, heading, level } = props;
-  if (!left && !right) return null;
 
+enum VAlign {
+  top = 'items-start',
+  center = 'items-center',
+  bottom = 'items-end',
+}
+
+const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
+  const { left, right, heading, options } = props;
   return (
     <div className="">
-      {heading && level && <Heading text={heading} level={level} className='mt-0' />}
-      <div className={`content-block flex items-center flex-col md:flex-row md:gap-16 ${reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'}`}>
-        <div className={cn(offset ? 'basis-2/3' : 'basis-1/2 w-1/2')}>
-          {left && <SanityContent content={left} size={textSize as keyof typeof TextSize} />}
+      {heading && <Heading text={heading.text || "no text"} level={heading.level || 1} className='mt-0' />}
+      <div className={`content-block flex items-center flex-col md:flex-row md:gap-16 ${options?.reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'} ${VAlign[options?.vAlign || 'center']}`}>
+        <div className={cn(options?.offset ? 'basis-2/3' : 'basis-1/2 w-1/2')}>
+          {left && <SanityContent content={left} size={options?.textSize as keyof typeof TextSize} />}
         </div>
-        <div className={`${offset ? 'basis-1/3' : 'basis-1/2 w-1/2'}`}>
-          {right && <SanityContent content={right} size={textSize as keyof typeof TextSize} />}
+        <div className={`${options?.offset ? 'basis-1/3' : 'basis-1/2 w-1/2'}`}>
+          {right && <SanityContent content={right} size={options?.textSize as keyof typeof TextSize} />}
         </div>
       </div>
     </div>
