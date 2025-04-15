@@ -10,6 +10,16 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Link from 'next/link';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from '@/components/ui/button';
+import { ContactForm } from '@/components/ContactForm';
 
 interface INavBarProps {
   menu: {
@@ -33,6 +43,23 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
             </Link>
           </NavigationMenuItem>
         ))}
+        <NavigationMenuItem>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline">Contact Us</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Get Started!</DialogTitle>
+                <DialogDescription>
+                  This action cannot be undone. This will permanently delete your account
+                  and remove your data from our servers.
+                </DialogDescription>
+              </DialogHeader>
+              <ContactForm />
+            </DialogContent>
+          </Dialog>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
