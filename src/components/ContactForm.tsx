@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -40,6 +39,7 @@ export function ContactForm() {
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log({ data });
     // toast({
     //   title: "You submitted the following values:",
     //   description: (
@@ -62,9 +62,6 @@ export function ContactForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}

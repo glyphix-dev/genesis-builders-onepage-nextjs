@@ -3,9 +3,9 @@ import { cn } from '@/lib/utils';
 import Container from './Container';
 import Logo from './Logo';
 import StickyHeader from './StickyHeader';
-import MobileMenu from './MobileMenu';
+// import MobileMenu from './MobileMenu';
 import NavBar from './NavBar';
-import SearchForm from './SearchForm';
+// import SearchForm from './SearchForm';
 import { client } from '@/sanity/lib/client';
 import queries from '@/sanity/queries';
 import { getRevalidation, QueryTypes } from '@/sanity/queries';
@@ -20,7 +20,7 @@ interface IHeaderProps {
 
 const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false, className, id = "header" }) => {
   const mainMenu = await client.fetch(queries.settings.mainMenu, {}, revalidate);
-  const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
+  // const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
   const HeaderChildren = () => {
     return (<Container>
       <div id={id} className="flex justify-between items-center relative py-4">

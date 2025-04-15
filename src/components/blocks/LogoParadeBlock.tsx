@@ -3,6 +3,7 @@ import { LogoParadeBlock as LogoParadeBlockType } from '@/types/types.sanity';
 import Image from 'next/image';
 import { client } from '@/sanity/lib/client';
 import urlBuilder from '@sanity/image-url';
+import { SanityAsset } from '@sanity/image-url/lib/types/types';
 interface ILogoParadeBlockProps {
   value: LogoParadeBlockType
 }
@@ -13,7 +14,7 @@ const LogoParadeBlock: React.FunctionComponent<ILogoParadeBlockProps> = (props) 
   return (
     <div>
       <div className='flex flex-wrap gap-24 justify-center'>
-        {images?.map((image: any) => {
+        {images?.map((image: SanityAsset) => {
           const url = builder.image(image).width(400).height(400).fit('max').dpr(2).auto('format').url()
           return url && (
             <Image
