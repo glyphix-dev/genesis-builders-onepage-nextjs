@@ -5,7 +5,6 @@ import { client } from "@/sanity/lib/client";
 import queries, { getRevalidation, QueryTypes } from "@/sanity/queries";
 import Container from "@/components/Container";
 import Content from "@/components/Content";
-import Aside from "@/components/Aside";
 import Main from "@/components/Main";
 import Layout from "@/components/Layout";
 import LayoutHeader from "@/components/LayoutHeader";
