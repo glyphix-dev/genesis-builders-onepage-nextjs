@@ -4,8 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SkipToContent from "@/components/SkipToContent";
 import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager } from '@next/third-parties/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager, sendGTMEvent, GoogleAnalytics } from '@next/third-parties/google'
+import Script from "next/script";
 
 
 
@@ -37,8 +37,17 @@ export default function RootLayout({
         <SkipToContent />
         {children}
         <Toaster richColors />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string} />
+        <Script type="text/javascript">
+          {`
+            var _iub = _iub || [];
+            _iub.csConfiguration = {"siteId":4000130,"cookiePolicyId":53039053,"lang":"en","storage":{"useSiteId":true}};
+          `}
+        </Script>
+        <Script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4000130.js"></Script>
+        <Script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></Script>
+        <Script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" async></Script>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string} />
       </body>
     </html>
   );
