@@ -3,6 +3,10 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { toast } from "sonner"
+import { Toaster } from "@/components/ui/sonner"
+
+
 
 // import { toast } from "@/components/hooks/use-toast"
 import { Button } from "@/components/ui/button"
@@ -15,6 +19,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 
 const FormSchema = z.object({
   firstName: z.string().min(2, {
@@ -26,6 +31,9 @@ const FormSchema = z.object({
   email: z.string().email({
     message: "Invalid email address.",
   }),
+  message: z.string().min(2, {
+    message: "Message must be at least 2 characters.",
+  }),
 })
 
 export function ContactForm() {
@@ -35,23 +43,18 @@ export function ContactForm() {
       firstName: "",
       lastName: "",
       email: "",
+      message: "",
     },
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log({ data });
-    // toast({
-    //   title: "You submitted the following values:",
-    //   description: (
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-    //     </pre>
-    //   ),
-    // })
+    toast.success("Message sent successfully")
   }
 
   return (
     <Form {...form}>
+      <Toaster />
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <FormField
           control={form.control}
@@ -91,6 +94,27 @@ export function ContactForm() {
               <FormControl>
                 <Input {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Message</FormLabel>
+              <FormControl>
+                <Textarea
+                  rows={5}
+                  // placeholder="Tell us a little bit about yourself"
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+              {/* <FormDescription>
+                You can <span>@mention</span> other users and organizations.
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
