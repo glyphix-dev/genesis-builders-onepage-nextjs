@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SkipToContent from "@/components/SkipToContent";
 import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager, sendGTMEvent, GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script";
 
 
