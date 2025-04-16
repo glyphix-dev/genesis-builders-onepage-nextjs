@@ -48,17 +48,16 @@ export function ContactForm() {
   })
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log({ data });
-    const response = await tryCatch(
+    const { data: response, error } = await tryCatch(
       fetch("/api/contact", {
         method: "POST",
         body: JSON.stringify(data),
       })
     );
-    console.log({ response });
+    console.log({ response, error, data: response?.body });
 
-    if (!response.data?.ok) {
-      toast.error(response.data?.statusText || "Message failed to send");
+    if (!response?.ok) {
+      toast.error(response?.statusText || "Message failed to send");
       return;
     }
 
