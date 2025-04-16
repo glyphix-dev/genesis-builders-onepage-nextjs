@@ -18,6 +18,7 @@ const LogoParadeBlock: React.FunctionComponent<ILogoParadeBlockProps> = (props) 
           const url = builder.image(image).width(400).height(400).fit('max').dpr(2).auto('format').url()
           return url && (
             <Image
+              key={image._key}
               src={url}
               alt={image.alt}
               width={image.asset.width || 400}

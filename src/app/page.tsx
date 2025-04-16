@@ -42,8 +42,8 @@ export default async function Home() {
                 {posts.map((post: { _id: string, slug: string, title: string, description: string, gallery: { src: string }[] }) => {
                   const image = post.gallery && post.gallery.length > 0 ? post.gallery[0].src : null;
                   return image && (
-                    <Link href={`/blog/${post.slug}`} key={post._id} className="flex flex-col gap-4">
-                      <article key={post._id} className="flex flex-col gap-4">
+                    <Link key={post._id} href={`/blog/${post.slug}`} className="flex flex-col gap-4">
+                      <article className="flex flex-col gap-4">
                         <header className="flex flex-col gap-4">
                           {post.gallery && post.gallery.length > 0 && (
                             <div className="relative w-full">
