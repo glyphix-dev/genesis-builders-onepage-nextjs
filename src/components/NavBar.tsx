@@ -51,10 +51,10 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Get Started!</DialogTitle>
-                <DialogDescription>
+                {/* <DialogDescription>
                   This action cannot be undone. This will permanently delete your account
                   and remove your data from our servers.
-                </DialogDescription>
+                </DialogDescription> */}
               </DialogHeader>
               <ContactForm />
             </DialogContent>
