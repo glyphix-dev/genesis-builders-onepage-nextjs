@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { toast } from "sonner"
-import { Toaster } from "@/components/ui/sonner"
 
 
 
@@ -20,6 +19,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { tryCatch } from "@/lib/tryCatch"
 
 const FormSchema = z.object({
   firstName: z.string().min(2, {
@@ -47,14 +47,26 @@ export function ContactForm() {
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log({ data });
-    toast.success("Message sent successfully")
+    const response = await tryCatch(
+      fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+      })
+    );
+    console.log({ response });
+
+    if (!response.data?.ok) {
+      toast.error(response.data?.statusText || "Message failed to send");
+      return;
+    }
+
+    toast.success("Message sent successfully");
   }
 
   return (
     <Form {...form}>
-      <Toaster />
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <FormField
           control={form.control}
