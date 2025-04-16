@@ -37,7 +37,7 @@ export default function RootLayout({
         <SkipToContent />
         {children}
         <Toaster richColors />
-        <Script type="text/javascript">
+        <Script id="iubenda" type="text/javascript">
           {`
             var _iub = _iub || [];
             _iub.csConfiguration = {"siteId":4000130,"cookiePolicyId":53039053,"lang":"en","storage":{"useSiteId":true}};
