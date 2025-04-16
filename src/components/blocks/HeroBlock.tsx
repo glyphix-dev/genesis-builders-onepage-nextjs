@@ -9,11 +9,8 @@ interface IHeroBlockProps {
 }
 
 const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) => {
-  // console.log({ value });
   const { image, valueProposition } = value;
-  console.log({ image, valueProposition });
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
-  console.log({ imageData });
   return (
     <div className="flex gap-16">
       <div><SanityContent content={valueProposition as BlockContent} size={"2xl"} /></div>

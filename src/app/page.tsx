@@ -18,7 +18,6 @@ const revalidate = getRevalidation(QueryTypes.Home)
 export default async function Home() {
 
   const { data, error } = await tryCatch(client.fetch(queries.home.page, {}, revalidate));
-  console.log({ data, error });
   if (error) {
     throw new Error("Failed to fetch home page")
   }

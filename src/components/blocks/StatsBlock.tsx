@@ -7,7 +7,6 @@ interface IStatsBlockProps {
 
 const StatsBlock: React.FunctionComponent<IStatsBlockProps> = (props) => {
   const { stats } = props.value
-  console.log(stats)
   return (
     <div className='flex flex-wrap gap-24 justify-center not-prose'>
       {stats?.map((stat) => {
