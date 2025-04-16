@@ -34,20 +34,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
+        <Script type="text/javascript" src="//embeds.iubenda.com/widgets/1c3f37aa-fb03-4f6b-8055-14cec2dbea11.js"></Script>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string} />
         <SkipToContent />
         {children}
         <Toaster richColors />
-        <Script id="iubenda" type="text/javascript">
-          {`
-            var _iub = _iub || [];
-            _iub.csConfiguration = {"siteId":4000130,"cookiePolicyId":53039053,"lang":"en","storage":{"useSiteId":true}};
-          `}
-        </Script>
-        <Script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4000130.js"></Script>
-        <Script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></Script>
-        <Script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" async></Script>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string} />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string} />
       </body>
     </html>
   );
