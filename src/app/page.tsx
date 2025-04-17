@@ -12,7 +12,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { tryCatch } from "@/lib/tryCatch";
-
+import { PortableText } from "@portabletext/react";
+import { components } from "@/components/blocks";
 const revalidate = getRevalidation(QueryTypes.Home)
 
 export default async function Home() {
@@ -31,12 +32,12 @@ export default async function Home() {
     return notFound()
   }
   return (
-    <Layout hasStickyHeader>
+    <Layout>
       <div className="relative">
         <Container>
           <Content>
             <Main>
-              {data.body && <SanityContent content={data.body} />}
+              {data.body && <div className="block-content flex flex-col gap-8"><PortableText value={data.body} components={components} /></div>}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {posts.map((post: { _id: string, slug: string, title: string, description: string, gallery: { src: string }[] }) => {
                   const image = post.gallery && post.gallery.length > 0 ? post.gallery[0].src : null;

@@ -19,7 +19,7 @@ interface IBlock {
 }
 
 const Block = ({ children }: IBlock) => {
-  return <div id={uuidv4()} className="my-32">{children}</div>
+  return <div id={uuidv4()} className="block">{children}</div>
 }
 
 export const components = {

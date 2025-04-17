@@ -19,7 +19,7 @@ export async function sendMailgun(to: string, subject: string, text: string) {
 
   return tryCatch<MailgunResponse>(
     mg.messages.create(process.env.MAILGUN_DOMAIN || "sandboxa0a8ce324f83402499f48e407cd82cf7.mailgun.org", {
-      from: `Postmaster <postmaster@${process.env.MAILGUN_DOMAIN || "sandboxa0a8ce324f83402499f48e407cd82cf7.mailgun.org"}>`,
+      from: `${process.env.EMAIL_NAME} <${process.env.EMAIL}>`,
       to: [to],
       subject: subject,
       text: text,

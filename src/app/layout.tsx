@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Barlow_Condensed, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SkipToContent from "@/components/SkipToContent";
 import { Toaster } from "@/components/ui/sonner";
@@ -18,6 +18,19 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const barlowCondensed = Barlow_Condensed({
+  weight: "400",
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+});
+
+const mtSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  variable: "--font-mt-serif-display",
+  subsets: ["latin"],
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

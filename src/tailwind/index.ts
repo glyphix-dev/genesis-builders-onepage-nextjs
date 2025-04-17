@@ -1,9 +1,11 @@
 import { default as white } from './white';
 import { default as black } from './black';
+import { default as mutedForeground } from './muted-foreground';
 
 export default {
   white,
   black,
+  "muted-foreground": mutedForeground,
 } as const;
 
 export const createSingleColorProse = (color: string) => {

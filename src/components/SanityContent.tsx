@@ -8,11 +8,12 @@ import { TextSize } from '@/types/types.custom';
 interface ISanityContentProps {
   content: BlockContent
   size?: string
+  className?: string
 }
 
-const SanityContent: React.FunctionComponent<ISanityContentProps> = ({ content, size }) => {
+const SanityContent: React.FunctionComponent<ISanityContentProps> = ({ content, size, className }) => {
   return (
-    <Prose size={size as keyof typeof TextSize}>
+    <Prose size={size as keyof typeof TextSize} className={className}>
       <PortableText value={content} components={components} />
     </Prose>
   );

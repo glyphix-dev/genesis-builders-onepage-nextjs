@@ -6,9 +6,12 @@ export async function POST(req: Request) {
 
   // Email to admins
   const adminEmailText = `
-    Name: ${data.firstName} ${data.lastName}
+    First Name: ${data.firstName}
+    Last Name: ${data.lastName}
     Email: ${data.email}
+    Phone: ${data.phone}
     Message: ${data.message}
+    
     This is an automated email. This data is not stored. Please copy to your records.
     Please do not reply directly to this email.
   `;
