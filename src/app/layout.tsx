@@ -1,23 +1,11 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Barlow_Condensed, DM_Serif_Display } from "next/font/google";
+import { Barlow_Condensed, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SkipToContent from "@/components/SkipToContent";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script";
-
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const barlowCondensed = Barlow_Condensed({
   weight: "400",
@@ -45,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${mtSerifDisplay.variable} ${barlowCondensed.variable} antialiased bg-background text-foreground`}
       >
         <Script type="text/javascript" src="//embeds.iubenda.com/widgets/1c3f37aa-fb03-4f6b-8055-14cec2dbea11.js"></Script>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string} />

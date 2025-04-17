@@ -1,4 +1,4 @@
-import type { ContentBlock as ContentBlockType, HeroBlock as HeroBlockType, CarouselBlock as CarouselBlockType, SlideshowBlock as SlideshowBlockType, Bento2Block as Bento2BlockType, YoutubeBlock as YoutubeBlockType, FeaturesBlock as FeaturesBlockType, TestimonialBlock, GalleryBlock as GalleryBlockType, CallToActionBlock as CallToActionBlockType, LogoParadeBlock as LogoParadeBlockType, StatsBlock as StatsBlockType } from "@/types/types.sanity";
+import type { AdvancedImage as AdvancedImageBlockType, ContentBlock as ContentBlockType, HeroBlock as HeroBlockType, CarouselBlock as CarouselBlockType, SlideshowBlock as SlideshowBlockType, Bento2Block as Bento2BlockType, YoutubeBlock as YoutubeBlockType, FeaturesBlock as FeaturesBlockType, TestimonialBlock, GalleryBlock as GalleryBlockType, CallToActionBlock as CallToActionBlockType, LogoParadeBlock as LogoParadeBlockType, StatsBlock as StatsBlockType } from "@/types/types.sanity";
 import type { IImageBlockProps } from "./ImageBlock";
 import { v4 as uuidv4 } from 'uuid';
 import { ImageBlock } from "./ImageBlock";
@@ -14,6 +14,8 @@ import ContentBlock from "./ContentBlock";
 import CallToActionBlock from "./CallToActionBlock";
 import LogoParadeBlock from "./LogoParadeBlock";
 import StatsBlock from "./StatsBlock";
+import { AdvancedImageBlock } from "./AdvancedImageBlock";
+
 interface IBlock {
   children?: React.ReactNode
 }
@@ -28,6 +30,13 @@ export const components = {
       return (
         <Block>
           <ImageBlock {...value} />
+        </Block>
+      );
+    },
+    advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
+      return (
+        <Block>
+          <AdvancedImageBlock {...value} />
         </Block>
       );
     },

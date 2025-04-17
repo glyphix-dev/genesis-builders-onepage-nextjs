@@ -68,6 +68,34 @@ export type Geopoint = {
   alt?: number
 }
 
+export type AdvancedImage = {
+  _type: 'advancedImage'
+  image?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  metadata?: {
+    alt?: string
+    title?: string
+    caption?: string
+    credit?: string
+  }
+  options?: {
+    width?: number
+    height?: number
+    circle?: boolean
+    figure?: boolean
+  }
+}
+
 export type CallToActionBlock = {
   _type: 'callToActionBlock'
   layout?: 'left' | 'right'
@@ -139,6 +167,9 @@ export type CallToActionBlock = {
     | ({
       _key: string
     } & CallToActionBlock)
+    | ({
+      _key: string
+    } & AdvancedImage)
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
@@ -243,6 +274,9 @@ export type HeroBlock = {
     | ({
       _key: string
     } & CallToActionBlock)
+    | ({
+      _key: string
+    } & AdvancedImage)
   >
   image?: {
     asset?: {
@@ -364,6 +398,9 @@ export type Bento2Block = {
       _type: 'image'
       _key: string
     }
+    | ({
+      _key: string
+    } & AdvancedImage)
   >
   right?: Array<
     | {
@@ -397,6 +434,9 @@ export type Bento2Block = {
       _type: 'image'
       _key: string
     }
+    | ({
+      _key: string
+    } & AdvancedImage)
   >
 }
 
@@ -461,6 +501,9 @@ export type ContentBlock = {
       _type: 'image'
       _key: string
     }
+    | ({
+      _key: string
+    } & AdvancedImage)
   >
   align?: 'start' | 'center' | 'end'
   textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
@@ -514,6 +557,9 @@ export type CarouselBlock = {
         _type: 'image'
         _key: string
       }
+      | ({
+        _key: string
+      } & AdvancedImage)
     >
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     _key: string
@@ -658,6 +704,9 @@ export type BasicBlockContent = Array<
     _type: 'image'
     _key: string
   }
+  | ({
+    _key: string
+  } & AdvancedImage)
 >
 
 export type BlockContent = Array<
@@ -728,6 +777,9 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & CallToActionBlock)
+  | ({
+    _key: string
+  } & AdvancedImage)
 >
 
 export type LandingPageContent = Array<
@@ -780,6 +832,9 @@ export type LandingPageContent = Array<
   | ({
     _key: string
   } & CallToActionBlock)
+  | ({
+    _key: string
+  } & AdvancedImage)
 >
 
 export type Page = {

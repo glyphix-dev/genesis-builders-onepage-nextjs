@@ -7,7 +7,6 @@ import Container from "@/components/Container";
 import Content from "@/components/Content";
 import Main from "@/components/Main";
 import Layout from "@/components/Layout";
-import SanityContent from '@/components/SanityContent';
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
