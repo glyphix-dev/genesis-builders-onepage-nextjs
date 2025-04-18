@@ -39,7 +39,7 @@ export default async function Page({ params }: PageProps) {
         <LayoutHeader title={data?.title || "Untitled"} />
         <Content>
           <Main>
-            {data.body && <SanityContent content={data.body} />}
+            {data.body && <SanityContent content={data.body} className="prose-headings:font-serif prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-xl prose-h5:text-lg prose-h6:text-base" />}
           </Main>
         </Content>
       </Container>

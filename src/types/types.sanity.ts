@@ -98,7 +98,6 @@ export type AdvancedImage = {
 
 export type CallToActionBlock = {
   _type: 'callToActionBlock'
-  layout?: 'left' | 'right'
   body?: Array<
     | {
       asset?: {
@@ -173,7 +172,11 @@ export type CallToActionBlock = {
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
-  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type StatsBlock = {
@@ -185,6 +188,11 @@ export type StatsBlock = {
     _type: 'stat'
     _key: string
   }>
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type LogoParadeBlock = {
@@ -202,6 +210,11 @@ export type LogoParadeBlock = {
     _type: 'image'
     _key: string
   }>
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type HeroBlock = {
@@ -290,7 +303,11 @@ export type HeroBlock = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type TestimonialBlock = {
@@ -313,6 +330,11 @@ export type TestimonialBlock = {
     }
   }
   rating?: number
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type GalleryBlock = {
@@ -331,6 +353,11 @@ export type GalleryBlock = {
     _type: 'image'
     _key: string
   }>
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type SlideshowBlock = {
@@ -350,8 +377,13 @@ export type SlideshowBlock = {
     _type: 'image'
     _key: string
   }>
-  autoplay?: boolean
-  interval?: number
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+    autoplay?: boolean
+    interval?: number
+  }
 }
 
 export type Bento2Block = {
@@ -359,12 +391,6 @@ export type Bento2Block = {
   heading?: {
     text?: string
     level?: 1 | 2 | 3 | 4 | 5 | 6
-  }
-  options?: {
-    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    vAlign?: 'top' | 'center' | 'bottom'
-    offset?: boolean
-    reverse?: boolean
   }
   left?: Array<
     | {
@@ -438,6 +464,13 @@ export type Bento2Block = {
       _key: string
     } & AdvancedImage)
   >
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+    offset?: boolean
+    reverse?: boolean
+  }
 }
 
 export type FeaturesBlock = {
@@ -460,6 +493,12 @@ export type FeaturesBlock = {
     description?: string
     _key: string
   }>
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+    columns?: number
+  }
 }
 
 export type YoutubeBlock = {
@@ -506,7 +545,11 @@ export type ContentBlock = {
     } & AdvancedImage)
   >
   align?: 'start' | 'center' | 'end'
-  textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type CarouselBlock = {
@@ -565,6 +608,11 @@ export type CarouselBlock = {
     _key: string
   }>
   autoplay?: boolean
+  options?: {
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    vAlign?: 'top' | 'center' | 'bottom'
+    useLandingPageStyles?: boolean
+  }
 }
 
 export type TextSize = 'sm' | 'md' | 'lg' | 'xl' | '2xl'

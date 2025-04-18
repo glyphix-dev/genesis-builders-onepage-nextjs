@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { CallToActionBlock as CallToActionBlockType } from '@/types/types.sanity';
-import SanityContent from '../SanityContent';
 import {
   Dialog,
   DialogContent,
@@ -11,7 +10,8 @@ import {
 
 import { Button } from '../ui/button';
 import { ContactForm } from '../ContactForm';
-
+import { PortableText } from '@portabletext/react';
+import { components } from './index';
 
 interface ICallToActionBlockProps {
   value: CallToActionBlockType
@@ -20,11 +20,13 @@ interface ICallToActionBlockProps {
 const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
   const { body, buttonText, formDisplay, } = props.value
   return (
-    <div className='content-block flex gap-16 justify-between bg-muted p-16 rounded-lg'>
-      <div className='basis-2/3'>
-        {body && <SanityContent content={body} size="xl" />}
+    <div className='content-block bg-muted text-muted-foreground flex flex-col md:flex-row gap-16 items-center justify-center md:justify-between p-16'>
+      <div className='w-full md:basis-2/3 text-center md:text-left prose-h2:text-5xl'>
+        {body && (
+          <PortableText value={body} components={components} />
+        )}
       </div>
-      <div className='basis-1/3 flex justify-end'>
+      <div className='w-full md:basis-1/3 flex justify-center md:justify-end items-center'>
         {formDisplay === 'inline' && (
           <div className='w-full'>
             <ContactForm />
@@ -33,7 +35,7 @@ const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (pro
         {formDisplay === 'modal' && (
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline">{buttonText}</Button>
+              <Button variant="default" size="lg">{buttonText}</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>

@@ -4,17 +4,18 @@ import { getImageData } from '@/lib/utils';
 import SanityImage from '../SanityImage';
 import { components } from '../blocks';
 import { PortableText } from '@portabletext/react';
-// import { TextSize } from '@/types/types.custom';
+
 interface IHeroBlockProps {
   value: HeroBlockType
 }
 
 const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) => {
-  const { image, valueProposition } = value;
+  const { image, valueProposition, options } = value;
+  console.log(options);
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-muted items-stretch">
-      <div className="order-2 prose prose-xl max-w-none p-12 prose-muted-foreground prose-headings:font-serif prose-headings:text-5xl">
+      <div className="order-2 portable-text-block p-12 prose-muted-foreground prose-headings:text-muted-foreground prose-p:text-muted-foreground prose-p:text-balance">
         <PortableText value={valueProposition as BlockContent} components={components} />
       </div>
       <div className="order-1 relative w-full h-full">
