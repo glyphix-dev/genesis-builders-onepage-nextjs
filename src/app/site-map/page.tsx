@@ -25,7 +25,7 @@ export default async function Page() {
 
   return (
     <>
-      <Layout>
+      <Layout hasStickyHeader>
         <Container>
           <LayoutHeader title={"Sitemap"} />
           <ContentContainer>

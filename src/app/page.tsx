@@ -33,7 +33,7 @@ export default async function Home() {
   }
 
   return (
-    <Layout>
+    <Layout hasStickyHeader>
       <div className="relative">
         <Container>
           <ContentContainer>

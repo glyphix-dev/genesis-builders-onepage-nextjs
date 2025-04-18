@@ -34,7 +34,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <Layout>
+    <Layout hasStickyHeader>
       <Container>
         <LayoutHeader title={data?.title || "Untitled"} />
         <ContentContainer>

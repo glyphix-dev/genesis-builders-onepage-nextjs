@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth scroll-p-16">
+    <html lang="en" className="scroll-smooth scroll-p-28">
       <body
         className={`${mtSerifDisplay.variable} ${dmSans.variable} antialiased bg-background text-foreground`}
       >
