@@ -3,6 +3,7 @@
 @plugin "@tailwindcss/typography";
 @config "../../tailwind.config.ts";
 @custom-variant dark (&:is(.dark *));
+@custom-variant theme-home (&:is(.theme-home *));
 
 @theme inline {
   --layout-gap: 4rem;
@@ -132,21 +133,28 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+@theme {
+  /* --spacing: 1.5rem;
+  --spacing-lg: 2rem; */
+  --font-serif: "DM Serif Display", "serif";
+  --font-sans: "DM Sans", "sans-serif";
+}
+
 @layer components {
   /* Landing Page Styles */
   /* Headings */
-  .prose-block {
+  .theme-home {
     @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
   }
   /* Content */
-  .prose-block {
-    @apply prose-p:text-lg prose-p:leading-normal prose-p:text-balance prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
+  .theme-home {
+    @apply prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
   }
 
   /* Content Block Styles */
   /* Headings */
-  .content-page {
-    @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-3xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
+  .theme-default {
+    @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
   }
   /* Content */
   /* .content-page {
@@ -193,9 +201,4 @@
   p:empty {
     display: none;
   }
-}
-
-@theme {
-  --font-serif: "DM Serif Display", "serif";
-  --font-sans: "DM Sans", "sans-serif";
 }

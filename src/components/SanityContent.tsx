@@ -4,6 +4,7 @@ import Prose from './Prose';
 import { components } from './blocks'
 import type { BlockContent } from '@/types/types.sanity';
 import { TextSize } from '@/types/types.custom';
+import { cn } from '@/lib/utils';
 
 interface ISanityContentProps {
   content: BlockContent
@@ -13,7 +14,7 @@ interface ISanityContentProps {
 
 const SanityContent: React.FunctionComponent<ISanityContentProps> = ({ content, size, className }) => {
   return (
-    <Prose size={size as keyof typeof TextSize} className={className}>
+    <Prose size={size as keyof typeof TextSize} className={cn("max-w-none", className)}>
       <PortableText value={content} components={components} />
     </Prose>
   );

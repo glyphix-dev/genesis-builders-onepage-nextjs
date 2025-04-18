@@ -1,13 +1,13 @@
 import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-interface IContentProps {
+interface IContentContainerProps {
   children: React.ReactNode;
   hasAside?: boolean;
   className?: string;
 }
 
-const Content: React.FunctionComponent<IContentProps> = ({ children, hasAside = false, className }) => {
+const ContentContainer: React.FunctionComponent<IContentContainerProps> = ({ children, hasAside = false, className }) => {
   return (
     <div id="content" className={cn(
       `w-full flex flex-col`,
@@ -19,4 +19,4 @@ const Content: React.FunctionComponent<IContentProps> = ({ children, hasAside = 
   );
 };
 
-export default Content;
+export default ContentContainer;

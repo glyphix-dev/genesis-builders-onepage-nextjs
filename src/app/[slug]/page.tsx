@@ -4,14 +4,14 @@ import type { PageProps } from "@/types/types.custom";
 import { client } from "@/sanity/lib/client";
 import queries, { getRevalidation, QueryTypes } from "@/sanity/queries";
 import Container from "@/components/Container";
-import Content from "@/components/Content";
+import ContentContainer from "@/components/ContentContainer";
 import Main from "@/components/Main";
 import Layout from "@/components/Layout";
 import LayoutHeader from "@/components/LayoutHeader";
-import SanityContent from "@/components/SanityContent";
 import { notFound } from "next/navigation";
 import { tryCatch } from "@/lib/tryCatch";
-import { cn } from "@/lib/utils";
+import BodyContent from "@/components/BodyContent";
+
 const revalidate = getRevalidation(QueryTypes.Pages)
 
 export default async function Page({ params }: PageProps) {
@@ -37,13 +37,11 @@ export default async function Page({ params }: PageProps) {
     <Layout>
       <Container>
         <LayoutHeader title={data?.title || "Untitled"} />
-        <Content>
+        <ContentContainer>
           <Main>
-            {data.body && <SanityContent content={data.body} size="xl" className={cn(
-              "content-page"
-            )} />}
+            <BodyContent data={data} />
           </Main>
-        </Content>
+        </ContentContainer>
       </Container>
     </Layout>
   );

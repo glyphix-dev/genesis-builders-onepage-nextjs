@@ -4,7 +4,7 @@ import queries, { getRevalidation, QueryTypes } from "@/sanity/queries";
 import Container from "@/components/Container";
 import LayoutHeader from "@/components/LayoutHeader";
 import Layout from "@/components/Layout";
-import Content from "@/components/Content";
+import ContentContainer from "@/components/ContentContainer";
 import Prose from "@/components/Prose";
 import Main from "@/components/Main";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default async function Page() {
       <Layout>
         <Container>
           <LayoutHeader title={"Sitemap"} />
-          <Content>
+          <ContentContainer>
             <Main>
               <Prose>
                 {Object.keys(data).map((key) => {
@@ -53,7 +53,7 @@ export default async function Page() {
                 })}
               </Prose>
             </Main>
-          </Content>
+          </ContentContainer>
         </Container>
       </Layout>
     </>

@@ -175,6 +175,7 @@ export type CallToActionBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -191,6 +192,7 @@ export type StatsBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -213,6 +215,7 @@ export type LogoParadeBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -306,6 +309,7 @@ export type HeroBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -333,6 +337,7 @@ export type TestimonialBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -356,6 +361,7 @@ export type GalleryBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -380,6 +386,7 @@ export type SlideshowBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
     autoplay?: boolean
     interval?: number
@@ -411,19 +418,6 @@ export type Bento2Block = {
       _type: 'block'
       _key: string
     }
-    | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }
     | ({
       _key: string
     } & AdvancedImage)
@@ -447,19 +441,6 @@ export type Bento2Block = {
       _type: 'block'
       _key: string
     }
-    | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }
     | ({
       _key: string
     } & AdvancedImage)
@@ -467,6 +448,7 @@ export type Bento2Block = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
     offset?: boolean
     reverse?: boolean
@@ -496,6 +478,7 @@ export type FeaturesBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
     columns?: number
   }
@@ -527,19 +510,6 @@ export type ContentBlock = {
       _type: 'block'
       _key: string
     }
-    | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }
     | ({
       _key: string
     } & AdvancedImage)
@@ -548,6 +518,7 @@ export type ContentBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -587,19 +558,6 @@ export type CarouselBlock = {
         _type: 'block'
         _key: string
       }
-      | {
-        asset?: {
-          _ref: string
-          _type: 'reference'
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-        }
-        media?: unknown
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        _type: 'image'
-        _key: string
-      }
       | ({
         _key: string
       } & AdvancedImage)
@@ -611,6 +569,7 @@ export type CarouselBlock = {
   options?: {
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
   }
 }
@@ -737,19 +696,6 @@ export type BasicBlockContent = Array<
     }>
     level?: number
     _type: 'block'
-    _key: string
-  }
-  | {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
     _key: string
   }
   | ({
@@ -893,9 +839,10 @@ export type Page = {
   _rev: string
   date?: string
   title?: string
-  slug?: Slug
   description?: string
-  body?: BlockContent
+  template?: 'default' | 'landing'
+  defaultContent?: BlockContent
+  landingContent?: LandingPageContent
   gallery?: Array<{
     asset?: {
       _ref: string
@@ -920,7 +867,22 @@ export type Home = {
   date?: string
   title?: string
   description?: string
-  body?: LandingPageContent
+  template?: 'default' | 'landing'
+  defaultContent?: BlockContent
+  landingContent?: LandingPageContent
+  gallery?: Array<{
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
 }
 
 export type SanityImageCrop = {
