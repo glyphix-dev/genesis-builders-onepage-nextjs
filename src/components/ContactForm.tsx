@@ -87,7 +87,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 not-prose">
         <FormField
           control={form.control}
           name="firstName"
@@ -184,10 +184,10 @@ export function ContactForm() {
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Pick one" />
+                    <SelectValue placeholder="Pick one" className="bg-white" />
                   </SelectTrigger>
                 </FormControl>
-                <SelectContent>
+                <SelectContent className="bg-white">
                   <SelectItem value="30 days">30 Days</SelectItem>
                   <SelectItem value="60 days">60 Days</SelectItem>
                   <SelectItem value="90 days">90 Days</SelectItem>
