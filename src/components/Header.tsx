@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import Container from './Container';
 import Logo from './Logo';
 import StickyHeader from './StickyHeader';
-// import MobileMenu from './MobileMenu';
+import MobileMenu from './MobileMenu';
 import NavBar from './NavBar';
 // import SearchForm from './SearchForm';
 import { client } from '@/sanity/lib/client';
@@ -20,16 +20,16 @@ interface IHeaderProps {
 
 const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false, className, id = "header" }) => {
   const mainMenu = await client.fetch(queries.settings.mainMenu, {}, revalidate);
-  // const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
+  const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
   const HeaderChildren = () => {
     return (<Container>
       <div id={id} className="flex justify-between items-center relative py-4">
         <Logo />
         <NavBar className="hidden md:block" menu={mainMenu} />
         {/* <SearchForm className="hidden md:flex" /> */}
-        {/* <MobileMenu menu={mobileMenu}>
+        <MobileMenu menu={mobileMenu}>
           <Logo />
-        </MobileMenu> */}
+        </MobileMenu>
       </div>
     </Container>)
   }

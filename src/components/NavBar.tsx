@@ -34,11 +34,11 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
   const pathname = usePathname();
   return (
     <NavigationMenu className={cn("relative flex items-center", className)}>
-      <NavigationMenuList className="relative gap-8">
+      <NavigationMenuList className="relative gap-2">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={item._key} className="flex justify-center items-center text-primary">
             <Link href={item.url} legacyBehavior passHref>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), pathname.includes(item.url) && "bg-accent text-accent-foreground")}>
+              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), pathname.includes(item.url) && "bg-accent text-accent-foreground tracking-tighter")}>
                 {item.label}
               </NavigationMenuLink>
             </Link>
@@ -47,7 +47,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="default" size="lg">Contact Us</Button>
+              <Button variant="default" size="lg">Get Started!</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>

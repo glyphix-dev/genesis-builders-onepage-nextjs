@@ -39,7 +39,7 @@ interface IBlock {
 
 enum ThemeClasses {
   DEFAULT = "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
-  HOME = "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg prose-p:first-of-type:text-2xl prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance",
+  HOME = "prose prose-spacing-normal max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h1:text-7xl prose-h2:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg prose-p:first-of-type:text-2xl prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance",
   FEATURES = "prose prose-2xl theme-features max-w-none"
 }
 
@@ -50,7 +50,7 @@ const Block = ({ children, className, options }: IBlock) => {
     theme: options && 'theme' in options ? options.theme : undefined,
     themeClass: options && 'theme' in options ? ThemeClasses[options.theme as keyof typeof ThemeClasses] || null : null
   });
-  return <div id={uuidv4()} className={cn(
+  return <div id={options && 'id' in options ? options.id : uuidv4()} className={cn(
     "w-full",
     themeClass,
     className

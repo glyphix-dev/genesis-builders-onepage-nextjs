@@ -43,7 +43,7 @@ const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (pro
                 <DialogHeader>
                   <DialogTitle>Get Started!</DialogTitle>
                   <DialogDescription>
-                    Tell us a bit about your needs so we can get started on rebuilding your home.
+                    Tell us a bit about yourself so we can get started on rebuilding your home.
                   </DialogDescription>
                 </DialogHeader>
                 <ContactForm />

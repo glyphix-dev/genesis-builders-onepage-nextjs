@@ -173,6 +173,7 @@ export type CallToActionBlock = {
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -190,6 +191,7 @@ export type StatsBlock = {
     _key: string
   }>
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -213,6 +215,7 @@ export type LogoParadeBlock = {
     _key: string
   }>
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -307,6 +310,7 @@ export type HeroBlock = {
     _type: 'image'
   }
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -335,6 +339,7 @@ export type TestimonialBlock = {
   }
   rating?: number
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -359,6 +364,7 @@ export type GalleryBlock = {
     _key: string
   }>
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -384,6 +390,7 @@ export type SlideshowBlock = {
     _key: string
   }>
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -446,6 +453,7 @@ export type Bento2Block = {
     } & AdvancedImage)
   >
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -476,6 +484,7 @@ export type FeaturesBlock = {
     _key: string
   }>
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -516,6 +525,7 @@ export type ContentBlock = {
   >
   align?: 'start' | 'center' | 'end'
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -567,6 +577,7 @@ export type CarouselBlock = {
   }>
   autoplay?: boolean
   options?: {
+    id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -839,6 +850,7 @@ export type Page = {
   _rev: string
   date?: string
   title?: string
+  slug?: Slug
   description?: string
   template?: 'default' | 'landing'
   defaultContent?: BlockContent
