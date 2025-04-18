@@ -3,6 +3,7 @@ import { CallToActionBlock as CallToActionBlockType } from '@/types/types.sanity
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -28,26 +29,27 @@ const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (pro
       </div>
       <div className='w-full md:basis-1/3 flex justify-center md:justify-end items-center'>
         {formDisplay === 'inline' && (
-          <div className='w-full'>
+          <div className='w-full not-prose'>
             <ContactForm />
           </div>
         )}
         {formDisplay === 'modal' && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="default" size="lg">{buttonText}</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Get Started!</DialogTitle>
-                {/* <DialogDescription>
-                  This action cannot be undone. This will permanently delete your account
-                  and remove your data from our servers.
-                </DialogDescription> */}
-              </DialogHeader>
-              <ContactForm />
-            </DialogContent>
-          </Dialog>
+          <div className='not-prose'>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="default" size="lg">{buttonText}</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Get Started!</DialogTitle>
+                  <DialogDescription>
+                    Tell us a bit about your needs so we can get started on rebuilding your home.
+                  </DialogDescription>
+                </DialogHeader>
+                <ContactForm />
+              </DialogContent>
+            </Dialog>
+          </div>
         )}
       </div>
     </div>
