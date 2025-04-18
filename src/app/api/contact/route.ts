@@ -61,7 +61,6 @@ export async function POST(req: Request) {
       },
     });
   }
-  console.log({ adminResult, clientResult });
   return new Response(JSON.stringify({ adminResult, clientResult, error: null }), {
     status: 200,
     headers: {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ContentBlock as ContentBlockType } from '@/types/types.sanity';
 import SanityContent from '@/components/SanityContent';
 import { TextSize } from '@/types/types.custom';
+
 interface IContentBlockProps {
   value: ContentBlockType
 }
@@ -20,8 +21,8 @@ enum ContentBlockAlignmentClass {
 
 const ContentBlock: React.FunctionComponent<IContentBlockProps> = (props) => {
   return props.value.content && (
-    <div className={`content-block ${ContentBlockAlignmentClass[props.value.align as ContentBlockAlignment]}`}>
-      <SanityContent content={props.value.content} size={props.value.textSize as keyof typeof TextSize} />
+    <div className={`${ContentBlockAlignmentClass[props.value.align as ContentBlockAlignment]}`}>
+      <SanityContent content={props.value.content} size={props.value.options?.textSize as keyof typeof TextSize} />
     </div>
   );
 };

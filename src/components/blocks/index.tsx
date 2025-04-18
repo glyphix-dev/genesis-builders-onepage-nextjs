@@ -11,7 +11,6 @@ import type {
   CallToActionBlock as CallToActionBlockType,
   LogoParadeBlock as LogoParadeBlockType,
   StatsBlock as StatsBlockType,
-  AdvancedImage as AdvanceImageBlock,
   TestimonialBlock
 } from "@/types/types.sanity";
 import type { IImageBlockProps } from "./ImageBlock";
@@ -38,24 +37,24 @@ interface IBlock {
   options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlock['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options']
 }
 
-enum ProseSizeClasses {
-  "xs" = "prose-xs",
-  "sm" = "prose-sm",
-  "md" = "prose-base",
-  "lg" = "prose-lg",
-  "xl" = "prose-xl",
-  "2xl" = "prose-2xl"
-}
+// enum ProseSizeClasses {
+//   "xs" = "prose-xs",
+//   "sm" = "prose-sm",
+//   "md" = "prose-base",
+//   "lg" = "prose-lg",
+//   "xl" = "prose-xl",
+//   "2xl" = "prose-2xl"
+// }
 
 const Block = ({ children, className, options }: IBlock) => {
-  console.log({ options });
   return <div id={uuidv4()} className={cn(
     "w-full",
     options && 'useLandingPageStyles' in options && options.useLandingPageStyles
       ? "prose-block"
-      : (options && 'textSize' in options
-        ? "prose max-w-none mb-16 " + ProseSizeClasses[options.textSize || "md"]
-        : "prose max-w-none mb-16 " + ProseSizeClasses["md"]),
+      : null,
+    // (options && 'textSize' in options
+    //   ? "content-block prose max-w-none mb-16 " + ProseSizeClasses[options.textSize || "md"]
+    //   : "content-block prose max-w-none mb-16 " + ProseSizeClasses["md"]),
     className
   )}>{children}</div>
 }
@@ -98,7 +97,6 @@ export const components = {
       )
     },
     youtubeBlock: async ({ value }: { value: YoutubeBlockType }) => {
-      const id = uuidv4()
       return (
         <Block className="aspect-video mx-auto mb-16 max-w-[640px]">
           <YouTube value={value} />

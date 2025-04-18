@@ -14,7 +14,7 @@ enum ProseSize {
   md = 'xl:prose-base',
   lg = 'xl:prose-lg',
   xl = 'xl:prose-xl',
-  '2xl' = 'xl:prose-2xl',
+  '2xl' = 'prose-2xl',
 }
 
 const Prose: React.FunctionComponent<IProseProps> = ({ children, className, size = 'md' }) => {

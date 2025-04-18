@@ -46,9 +46,3 @@ export const createSingleColorProse = (color: string) => {
     },
   };
 };
-
-export const getProseBlockClasses = (color: string) => {
-  return [
-
-  ].join(" ")
-};

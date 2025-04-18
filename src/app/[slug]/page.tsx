@@ -11,7 +11,7 @@ import LayoutHeader from "@/components/LayoutHeader";
 import SanityContent from "@/components/SanityContent";
 import { notFound } from "next/navigation";
 import { tryCatch } from "@/lib/tryCatch";
-
+import { cn } from "@/lib/utils";
 const revalidate = getRevalidation(QueryTypes.Pages)
 
 export default async function Page({ params }: PageProps) {
@@ -39,7 +39,9 @@ export default async function Page({ params }: PageProps) {
         <LayoutHeader title={data?.title || "Untitled"} />
         <Content>
           <Main>
-            {data.body && <SanityContent content={data.body} className="prose-headings:font-serif prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-xl prose-h5:text-lg prose-h6:text-base" />}
+            {data.body && <SanityContent content={data.body} size="xl" className={cn(
+              "content-page"
+            )} />}
           </Main>
         </Content>
       </Container>

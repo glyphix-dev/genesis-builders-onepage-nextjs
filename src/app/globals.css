@@ -142,6 +142,16 @@
   .prose-block {
     @apply prose-p:text-lg prose-p:leading-normal prose-p:text-balance prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
   }
+
+  /* Content Block Styles */
+  /* Headings */
+  .content-page {
+    @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-3xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
+  }
+  /* Content */
+  /* .content-page {
+    @apply prose-p:text-lg prose-p:leading-normal prose-p:text-balance prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
+  } */
 }
 
 @layer base {

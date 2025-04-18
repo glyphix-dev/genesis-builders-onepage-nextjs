@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/ContactForm';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 interface INavBarProps {
   menu: {
     _key: string;
@@ -30,9 +30,8 @@ interface INavBarProps {
 }
 
 const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
-  const router = useRouter();
+
   const pathname = usePathname();
-  console.log({ router, pathname });
   return (
     <NavigationMenu className={cn("relative flex items-center", className)}>
       <NavigationMenuList className="relative gap-8">

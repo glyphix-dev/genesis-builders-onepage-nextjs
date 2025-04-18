@@ -1,7 +1,7 @@
 import type { Bento2Block } from '@/types/types.sanity';
 import * as React from 'react';
-import SanityContent from '../SanityContent';
-import { TextSize } from '@/types/types.custom';
+// import SanityContent from '../SanityContent';
+// import { TextSize } from '@/types/types.custom';
 import { cn } from '@/lib/utils';
 import Heading from '../Heading';
 import { components } from '.';

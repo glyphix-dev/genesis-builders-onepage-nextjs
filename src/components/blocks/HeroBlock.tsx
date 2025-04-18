@@ -10,8 +10,7 @@ interface IHeroBlockProps {
 }
 
 const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) => {
-  const { image, valueProposition, options } = value;
-  console.log(options);
+  const { image, valueProposition } = value;
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-muted items-stretch">
