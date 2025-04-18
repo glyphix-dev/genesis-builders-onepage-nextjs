@@ -25,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input"
 // import { Textarea } from "@/components/ui/textarea"
 import { tryCatch } from "@/lib/tryCatch"
+import validator from 'validator';
 
 const FormSchema = z.object({
   firstName: z.string().min(2, {
@@ -42,7 +43,7 @@ const FormSchema = z.object({
   start: z.string().min(1, {
     message: "Please select a timeframe.",
   }),
-  phone: z.string().min(1, {
+  phone: z.string().refine(validator.isMobilePhone, {
     message: "Please enter your phone number.",
   }),
   // message: z.string().min(2, {
@@ -83,6 +84,8 @@ export function ContactForm() {
     }
 
     toast.success("Message sent successfully");
+    setLoading(false);
+    form.reset();
   }
 
   return (
@@ -123,6 +126,19 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
