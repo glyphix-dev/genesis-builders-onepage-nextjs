@@ -37,7 +37,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
       <NavigationMenuList className="relative gap-2">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={item._key} className="flex justify-center items-center text-primary">
-            <Link href={item.url} legacyBehavior passHref>
+            <Link href={item.url} legacyBehavior passHref scroll={true}>
               <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), pathname.includes(item.url) && "bg-accent text-accent-foreground tracking-tighter")}>
                 {item.label}
               </NavigationMenuLink>
