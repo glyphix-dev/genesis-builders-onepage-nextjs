@@ -13,8 +13,8 @@ const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) =>
   const { image, valueProposition } = value;
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-muted items-stretch">
-      <div className="order-2 p-12 text-muted-foreground">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+      <div className="order-2 p-12">
         <PortableText value={valueProposition as BlockContent} components={components} />
       </div>
       <div className="order-1 relative w-full h-full">

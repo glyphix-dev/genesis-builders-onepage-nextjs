@@ -18,7 +18,7 @@ const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
   return (
     <div className="">
       {heading && <Heading text={heading.text || "no text"} level={heading.level || 1} className='mt-0' />}
-      <div className={`content-block flex items-center flex-col md:flex-row gap-16 md:gap-24 ${options?.reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'} ${VAlign[options?.vAlign || 'center']}`}>
+      <div className={`flex items-center flex-col md:flex-row gap-[var(--block-padding)] ${options?.reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col-reverse md:flex-row'} ${VAlign[options?.vAlign || 'center']}`}>
         <div className={cn("portable-text-block", options?.offset ? 'basis-1 md:basis-2/3' : 'basis-1 md:basis-1/2')}>
           {left && <PortableText value={left} components={components} />}
         </div>

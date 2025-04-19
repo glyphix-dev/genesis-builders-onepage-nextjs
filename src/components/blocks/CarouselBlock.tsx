@@ -28,7 +28,7 @@ const CarouselBlock: React.FunctionComponent<ICarouselBlockProps> = async ({ val
                   priority={true}
                   className='object-cover my-0 w-full'
                 />
-                <figcaption className='p-8 pl-12 absolute bg-black/50 prose prose-white w-full top-0 bottom-0 left-0 before:content-[" "] max-w-none flex items-end'>
+                <figcaption className='portable-text-block p-8 pl-12 absolute bg-black/50 prose prose-white w-full top-0 bottom-0 left-0 before:content-[" "] max-w-none flex items-end'>
                   {/*  before:absolute before:top-0 before:bottom-0 before:-left-2 before:right-full before:bg-black/50 */}
                   <PortableText value={slide.body as BlockContent} />
                 </figcaption>

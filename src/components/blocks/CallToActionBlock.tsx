@@ -21,8 +21,8 @@ interface ICallToActionBlockProps {
 const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
   const { body, buttonText, formDisplay, } = props.value
   return (
-    <div className='content-block bg-muted text-muted-foreground flex flex-col md:flex-row gap-16 items-center justify-center md:justify-between p-16'>
-      <div className='w-full md:basis-2/3 text-center md:text-left prose-h2:text-5xl'>
+    <div className='flex flex-col md:flex-row gap-[var(--block-padding)] items-center justify-center md:justify-between'>
+      <div className='portable-text-block w-full md:basis-2/3 text-center md:text-left'>
         {body && (
           <PortableText value={body} components={components} />
         )}

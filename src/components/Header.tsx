@@ -35,7 +35,7 @@ const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false,
   }
 
   return isSticky ? (
-    <StickyHeader className={cn("sticky top-0 z-50 w-full bg-white shadow-sm", className)}>
+    <StickyHeader className={cn("sticky top-0 z-50 w-full bg-white", className)}>
       <HeaderChildren />
     </StickyHeader>
   ) : (

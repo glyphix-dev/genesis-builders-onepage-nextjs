@@ -13,7 +13,7 @@ const LogoParadeBlock: React.FunctionComponent<ILogoParadeBlockProps> = (props) 
   const builder = urlBuilder(client)
   return (
     <div>
-      <div className='flex flex-wrap gap-24 justify-center'>
+      <div className='flex flex-wrap gap-[var(--block-padding)] justify-center'>
         {images?.map((image: SanityAsset) => {
           const url = builder.image(image).width(400).height(400).fit('max').dpr(2).auto('format').url()
           return url && (

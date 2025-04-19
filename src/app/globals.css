@@ -138,28 +138,14 @@
   --spacing-lg: 2rem; */
   --font-serif: "DM Serif Display", "serif";
   --font-sans: "DM Sans", "sans-serif";
+  --layout-spacing: 4rem;
+  --block-padding: 4rem;
 }
 
 @layer components {
-  /* Landing Page Styles */
-  /* Headings */
-  .theme-home {
-    @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
+  .p-block {
+    @apply py-[var(--block-padding)] px-[var(--block-padding)];
   }
-  /* Content */
-  .theme-home {
-    @apply prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
-  }
-
-  /* Content Block Styles */
-  /* Headings */
-  .theme-default {
-    @apply prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg;
-  }
-  /* Content */
-  /* .content-page {
-    @apply prose-p:text-lg prose-p:leading-normal prose-p:text-balance prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance;
-  } */
 }
 
 @layer base {
@@ -174,14 +160,16 @@
   .prose:first-child,
   .block-content > *:first-child,
   .prose-block div > *:first-child,
-  .content-block div > *:first-child {
+  .content-block > *:first-child,
+  .portable-text-block *:first-child {
     margin-top: 0 !important;
   }
 
   .prose:last-child,
   .block-content > *:last-child,
   .prose-block > *:last-child,
-  .content-block div > *:last-child {
+  .content-block > *:last-child,
+  .portable-text-block *:last-child {
     margin-bottom: 0 !important;
   }
 

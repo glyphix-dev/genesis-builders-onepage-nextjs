@@ -62,7 +62,7 @@ export const AdvancedImageBlock: React.FunctionComponent<IImageBlockProps> = asy
       image={transformedImage}
       width={options?.width}
       height={options?.height}
-      className={cn("mx-auto", options?.circle && "rounded-full")}
+      className={cn("mx-auto bg-transparent", options?.circle && "rounded-full")}
       alt={metadata?.alt}
     />
   );

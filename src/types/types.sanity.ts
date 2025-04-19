@@ -68,6 +68,77 @@ export type Geopoint = {
   alt?: number
 }
 
+export type TwoColumnListBlock = {
+  _type: 'twoColumnListBlock'
+  heading?: {
+    text?: string
+    level?: 1 | 2 | 3 | 4 | 5 | 6
+  }
+  left?: Array<{
+    heading?: string
+    body?: Array<
+      | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href?: string
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+      | ({
+        _key: string
+      } & AdvancedImage)
+    >
+    _key: string
+  }>
+  right?: Array<{
+    heading?: string
+    body?: Array<
+      | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href?: string
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+      | ({
+        _key: string
+      } & AdvancedImage)
+    >
+    _key: string
+  }>
+  options?: {
+    id?: string
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
+    vAlign?: 'top' | 'center' | 'bottom'
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    useLandingPageStyles?: boolean
+  }
+}
+
 export type AdvancedImage = {
   _type: 'advancedImage'
   image?: {
@@ -169,12 +240,17 @@ export type CallToActionBlock = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & TwoColumnListBlock)
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -193,6 +269,8 @@ export type StatsBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -217,6 +295,8 @@ export type LogoParadeBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -296,6 +376,9 @@ export type HeroBlock = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & TwoColumnListBlock)
   >
   image?: {
     asset?: {
@@ -312,6 +395,8 @@ export type HeroBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -341,6 +426,8 @@ export type TestimonialBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -366,6 +453,8 @@ export type GalleryBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -392,6 +481,8 @@ export type SlideshowBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -455,6 +546,8 @@ export type Bento2Block = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -486,6 +579,8 @@ export type FeaturesBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -527,6 +622,8 @@ export type ContentBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -579,6 +676,8 @@ export type CarouselBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
@@ -785,6 +884,9 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & AdvancedImage)
+  | ({
+    _key: string
+  } & TwoColumnListBlock)
 >
 
 export type LandingPageContent = Array<
@@ -840,6 +942,9 @@ export type LandingPageContent = Array<
   | ({
     _key: string
   } & AdvancedImage)
+  | ({
+    _key: string
+  } & TwoColumnListBlock)
 >
 
 export type Page = {

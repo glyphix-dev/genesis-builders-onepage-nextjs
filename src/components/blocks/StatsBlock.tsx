@@ -8,7 +8,7 @@ interface IStatsBlockProps {
 const StatsBlock: React.FunctionComponent<IStatsBlockProps> = (props) => {
   const { stats } = props.value
   return (
-    <div className='flex flex-wrap gap-24 justify-center not-prose'>
+    <div className='flex flex-wrap gap-[var(--block-padding)] justify-center not-prose'>
       {stats?.map((stat) => {
         return (
           <div key={stat._key} className='flex flex-col-reverse items-center gap-8 bg-slate-800 text-white p-4 rounded-lg'>

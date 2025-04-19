@@ -13,8 +13,8 @@ import type {
   StatsBlock as StatsBlockType,
   TestimonialBlock
 } from "@/types/types.sanity";
+
 import type { IImageBlockProps } from "./ImageBlock";
-import { v4 as uuidv4 } from 'uuid';
 import { ImageBlock } from "./ImageBlock";
 import Bento2Block from "./Bento2Block";
 import SlideshowBlock from "./SlideshowBlock";
@@ -29,48 +29,18 @@ import CallToActionBlock from "./CallToActionBlock";
 import LogoParadeBlock from "./LogoParadeBlock";
 import StatsBlock from "./StatsBlock";
 import { AdvancedImageBlock } from "./AdvancedImageBlock";
-import { cn } from "@/lib/utils";
-
-interface IBlock {
-  children?: React.ReactNode
-  className?: string
-  options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlock['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options']
-}
-
-enum ThemeClasses {
-  DEFAULT = "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
-  HOME = "prose prose-spacing-normal max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h1:text-7xl prose-h2:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg prose-p:first-of-type:text-2xl prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance",
-  FEATURES = "prose prose-2xl theme-features max-w-none"
-}
-
-const Block = ({ children, className, options }: IBlock) => {
-  const themeClass = options && 'theme' in options ? ThemeClasses[options.theme as keyof typeof ThemeClasses] || null : null;
-  console.log({
-    options,
-    theme: options && 'theme' in options ? options.theme : undefined,
-    themeClass: options && 'theme' in options ? ThemeClasses[options.theme as keyof typeof ThemeClasses] || null : null
-  });
-  return <div id={options && 'id' in options ? options.id : uuidv4()} className={cn(
-    "w-full",
-    themeClass,
-    className
-  )}>{children}</div>
-}
+import Block from "./Block";
 
 export const components = {
   types: {
     image: ({ value }: { value: IImageBlockProps }) => {
       return (
-        <Block {...value}>
-          <ImageBlock {...value} />
-        </Block>
+        <ImageBlock {...value} />
       );
     },
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
       return (
-        <Block {...value}>
-          <AdvancedImageBlock {...value} />
-        </Block>
+        <AdvancedImageBlock {...value} />
       );
     },
     featuresBlock: ({ value }: { value: FeaturesBlockType }) => {

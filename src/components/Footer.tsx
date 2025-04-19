@@ -18,7 +18,7 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
   const menu = await client.fetch(queries.settings.footerMenu, {}, revalidate);
 
   return (
-    <footer className={cn("w-full absolute bottom-0 bg-secondary text-secondary-foreground", className)}>
+    <footer className={cn("w-full bg-secondary text-secondary-foreground", className)}>
       <Container>
         <div className="w-full h-32 flex justify-between items-center">
           <div className="flex gap-2 items-center">
