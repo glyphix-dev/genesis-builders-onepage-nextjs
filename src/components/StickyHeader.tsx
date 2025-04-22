@@ -10,7 +10,7 @@ interface IStickyHeaderProps {
 const StickyHeader: React.FunctionComponent<IStickyHeaderProps> = ({ children, className }) => {
   const [isSticky, setIsSticky] = React.useState(false);
   React.useEffect(() => {
-    const handleScroll = (e: Event) => {
+    const handleScroll = () => {
       console.log(window.scrollY);
       if (window.scrollY > 5) {
         setIsSticky(true);
