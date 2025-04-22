@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import * as React from 'react';
-interface IHeadingProps {
+
+export interface IHeadingProps {
   text: string
   level: 1 | 2 | 3 | 4 | 5 | 6
   className?: string
