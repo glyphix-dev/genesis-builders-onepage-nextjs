@@ -11,8 +11,8 @@ interface ILayoutProps {
 const Layout: React.FunctionComponent<ILayoutProps> = ({ children, hasStickyHeader = false }) => {
   return (
     <>
+      <Header isSticky={hasStickyHeader} />
       <div className="flex flex-col min-h-screen relative px-8 xl:px-0 pb-[var(--layout-spacing)]">
-        <Header isSticky={hasStickyHeader} />
         <div className={cn("relative animate-fade-in", hasStickyHeader ? "pt-8" : "")}>
           {children}
         </div>
