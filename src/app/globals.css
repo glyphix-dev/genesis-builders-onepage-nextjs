@@ -6,7 +6,6 @@
 @custom-variant theme-home (&:is(.theme-home *));
 
 @theme inline {
-  --layout-gap: 4rem;
   --color-white: var(--white);
   --color-black: var(--black);
   --color-background: var(--background);
@@ -134,12 +133,10 @@
 }
 
 @theme {
-  /* --spacing: 1.5rem;
-  --spacing-lg: 2rem; */
   --font-serif: "DM Serif Display", "serif";
   --font-sans: "DM Sans", "sans-serif";
   --layout-spacing: 4rem;
-  --block-padding: 4rem;
+  --block-padding: var(--layout-spacing);
 }
 
 @layer components {
