@@ -6,8 +6,6 @@ import type {
   CarouselBlock as CarouselBlockType,
   SlideshowBlock as SlideshowBlockType,
   Bento2Block as Bento2BlockType,
-  YoutubeBlock as YoutubeBlockType,
-  FeaturesBlock as FeaturesBlockType,
   GalleryBlock as GalleryBlockType,
   CallToActionBlock as CallToActionBlockType,
   LogoParadeBlock as LogoParadeBlockType,
@@ -44,11 +42,6 @@ const Block: React.FunctionComponent<IBlockProps> = ({ children, className, opti
 
   const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "";
 
-  console.log({
-    options,
-    theme: options && 'theme' in options ? options.theme : undefined,
-    themeClass: options && 'theme' in options ? ThemeClasses[options.theme as keyof typeof ThemeClasses] || ThemeClasses['DEFAULT'] : ThemeClasses['DEFAULT']
-  });
   return <div id={options && 'id' in options ? options.id : uuidv4()} className={cn(
     "w-full",
     themeClass,
