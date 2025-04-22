@@ -131,7 +131,7 @@ export type TwoColumnListBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -170,19 +170,6 @@ export type AdvancedImage = {
 export type CallToActionBlock = {
   _type: 'callToActionBlock'
   body?: Array<
-    | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }
     | {
       children?: Array<{
         marks?: Array<string>
@@ -249,7 +236,7 @@ export type CallToActionBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -269,7 +256,7 @@ export type StatsBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -295,7 +282,7 @@ export type LogoParadeBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -306,19 +293,6 @@ export type LogoParadeBlock = {
 export type HeroBlock = {
   _type: 'heroBlock'
   valueProposition?: Array<
-    | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      media?: unknown
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      _type: 'image'
-      _key: string
-    }
     | {
       children?: Array<{
         marks?: Array<string>
@@ -395,7 +369,7 @@ export type HeroBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -426,7 +400,7 @@ export type TestimonialBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -453,7 +427,7 @@ export type GalleryBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -481,7 +455,7 @@ export type SlideshowBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -546,7 +520,7 @@ export type Bento2Block = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -579,7 +553,7 @@ export type FeaturesBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -622,7 +596,7 @@ export type ContentBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -676,7 +650,7 @@ export type CarouselBlock = {
   options?: {
     id?: string
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
-    bgColor?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
@@ -815,19 +789,6 @@ export type BasicBlockContent = Array<
 
 export type BlockContent = Array<
   | {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }
-  | {
     children?: Array<{
       marks?: Array<string>
       text?: string
@@ -890,19 +851,6 @@ export type BlockContent = Array<
 >
 
 export type LandingPageContent = Array<
-  | {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-    _key: string
-  }
   | ({
     _key: string
   } & CarouselBlock)
