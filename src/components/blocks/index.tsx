@@ -11,7 +11,8 @@ import type {
   CallToActionBlock as CallToActionBlockType,
   LogoParadeBlock as LogoParadeBlockType,
   StatsBlock as StatsBlockType,
-  TestimonialBlock
+  TestimonialBlock as TestimonialBlockType,
+  TwoColumnListBlock as TwoColumnListBlockType,
 } from "@/types/types.sanity";
 
 import type { IImageBlockProps } from "./ImageBlock";
@@ -30,6 +31,7 @@ import LogoParadeBlock from "./LogoParadeBlock";
 import StatsBlock from "./StatsBlock";
 import { AdvancedImageBlock } from "./AdvancedImageBlock";
 import Block from "./Block";
+import TwoColumnList from "./TwoColumnList";
 
 export const components = {
   types: {
@@ -41,6 +43,13 @@ export const components = {
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
       return (
         <AdvancedImageBlock {...value} />
+      );
+    },
+    twoColumnListBlock: ({ value }: { value: TwoColumnListBlockType }) => {
+      return (
+        <Block options={value?.options}>
+          <TwoColumnList {...value} />
+        </Block>
       );
     },
     featuresBlock: ({ value }: { value: FeaturesBlockType }) => {
@@ -78,7 +87,7 @@ export const components = {
         </Block>
       );
     },
-    testimonialBlock: ({ value }: { value: TestimonialBlock }) => {
+    testimonialBlock: ({ value }: { value: TestimonialBlockType }) => {
       return (
         <Block options={value?.options}>
           <TestimonialBlockComponent value={value} />
@@ -138,7 +147,7 @@ export const components = {
         <a
           href={value?.href || "#"}
           rel={rel}
-          className="underline underline-offset-2 whitespace-wrap break-all text-primary"
+          className="underline underline-offset-2 whitespace-wrap text-primary break-all"
           target={target}
         >
           {children}
