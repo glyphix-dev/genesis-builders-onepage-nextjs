@@ -8,7 +8,7 @@ interface IBlockContainerProps {
 
 const BlockContainer: React.FunctionComponent<IBlockContainerProps> = ({ children, className }) => {
   return (
-    <div className={cn("w-full flex flex-col gap-[var(--layout-gap)]", className)}>
+    <div className={cn("w-full flex flex-col gap-[var(--layout-spacing)]", className)}>
       {children}
     </div>
   );

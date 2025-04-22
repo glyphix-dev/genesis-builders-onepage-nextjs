@@ -7,7 +7,7 @@ interface ILandingPageContentProps {
 
 const LandingPageContent: React.FunctionComponent<ILandingPageContentProps> = (props) => {
   return (
-    <div className={cn("flex flex-col gap-32", props.className)}>
+    <div className={cn("flex flex-col gap-[var(--layout-spacing)]", props.className)}>
       {props.children}
     </div>
   );

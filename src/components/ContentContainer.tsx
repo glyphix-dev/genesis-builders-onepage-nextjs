@@ -11,7 +11,7 @@ const ContentContainer: React.FunctionComponent<IContentContainerProps> = ({ chi
   return (
     <div id="content" className={cn(
       `w-full flex flex-col`,
-      hasAside ? 'md:flex-row gap-[var(--layout-gap)]' : '',
+      hasAside ? 'md:flex-row gap-[var(--layout-spacing)]' : '',
       className
     )}>
       {children}

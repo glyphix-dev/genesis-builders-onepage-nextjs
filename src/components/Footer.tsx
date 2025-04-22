@@ -18,7 +18,7 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
   const menu = await client.fetch(queries.settings.footerMenu, {}, revalidate);
 
   return (
-    <footer className={cn("w-full bg-secondary text-secondary-foreground", className)}>
+    <footer className={cn("w-full bg-secondary text-secondary-foreground px-8 xl:px-0", className)}>
       <Container>
         <div className="w-full h-32 flex justify-between items-center">
           <div className="flex gap-2 items-center">
@@ -27,7 +27,9 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
           </div>
           <nav className="flex items-center gap-4">
             {menu?.map((item: { _key: string, label: string, url: string }) => (
-              <Link key={item._key} href={item.url} className="text-sm text-primary underline">{item.label}</Link>
+              <Link key={item._key} href={item.url} className="text-sm text-primary underline">
+                {item.label}
+              </Link>
             ))}
           </nav>
         </div>

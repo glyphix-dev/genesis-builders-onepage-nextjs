@@ -23,7 +23,7 @@ const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false,
   const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
   const HeaderChildren = () => {
     return (<Container>
-      <div id={id} className="flex justify-between items-center relative py-4">
+      <div id={id} className="flex justify-between items-center relative py-4 px-8 xl:px-0">
         <Logo />
         <NavBar className="hidden md:block" menu={mainMenu} />
         {/* <SearchForm className="hidden md:flex" /> */}

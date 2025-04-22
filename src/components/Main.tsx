@@ -10,7 +10,7 @@ interface IMainProps {
 const Main: React.FunctionComponent<IMainProps> = ({ children, hasAside = false, className }) => {
   return (
     <main className={cn("basis-full", hasAside ? "border-b md:border-b-0 md:border-r" : "", className)}>
-      <div className={cn(hasAside ? "pb-(--layout-gap) md:pb-0 md:pr-(--layout-gap)" : "")}>
+      <div className={cn(hasAside ? "pb-(--layout-spacing) md:pb-0 md:pr-(--layout-spacing)" : "")}>
         {children}
       </div>
     </main>
