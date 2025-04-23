@@ -4,6 +4,7 @@ import createImageUrlBuilder from '@sanity/image-url';
 import type { FeaturesBlock as FeaturesBlockType, SanityImageAsset } from '@/types/types.sanity';
 import Image from 'next/image';
 import Heading from '../Heading';
+import { v4 as uuidv4 } from 'uuid';
 
 const width = 150;
 const height = 150;
@@ -21,6 +22,18 @@ const columns = [
 type Feature = NonNullable<FeaturesBlockType['features']>[number];
 
 const FeaturesBlock: React.FunctionComponent<FeaturesBlockType> = async (props) => {
+  switch (props?.options?.layout) {
+    case 'default':
+      return <IconFeatures {...props} />;
+    case 'thumbnails':
+      return <ThumbnailFeatures {...props} />;
+  }
+};
+
+export default FeaturesBlock;
+
+const IconFeatures: React.FunctionComponent<FeaturesBlockType> = async (props) => {
+
   return props?.features && (
     <div>
       {props.heading && <Heading text={props.heading} level={2} className='mt-0 text-center font-serif text-5xl mb-[var(--block-padding)]' />}
@@ -29,7 +42,7 @@ const FeaturesBlock: React.FunctionComponent<FeaturesBlockType> = async (props) 
           const imageUrl = feature.icon ? createImageUrlBuilder(client).image(feature.icon).width(width).height(height).fit('max').dpr(2).auto('format').url() : null;
           const imageData: SanityImageAsset | null = feature.icon?.asset ? (await client.fetch(`*[_id == "${feature.icon.asset._ref}"]`))[0] : null;
           return (
-            <div key={feature._key} className="content-block flex flex-col items-center justify-center gap-2 text-center">
+            <div key={uuidv4()} className="content-block flex flex-col items-center justify-center gap-2 text-center">
               {
                 feature.icon && imageUrl && imageData && (
                   <div className="w-full flex items-start justify-center my-0 not-prose">
@@ -46,6 +59,46 @@ const FeaturesBlock: React.FunctionComponent<FeaturesBlockType> = async (props) 
 
     </div>
   );
-};
 
-export default FeaturesBlock;
+}
+
+const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (props) => {
+  return props?.features && (
+    <div>
+      {props.heading && <Heading text={props.heading} level={2} className='mt-0 text-center font-serif text-5xl mb-[var(--block-padding)]' />}
+      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-[var(--block-padding)] items-start`}>
+        {props.features?.map(async (feature: Feature) => {
+          const imageData: SanityImageAsset | null = feature.icon?.asset ? (await client.fetch(`*[_id == "${feature.icon.asset._ref}"]`))[0] : null;
+          return (
+            <div
+              key={uuidv4()}
+              className="bg-cover bg-center min-h-96 relative"
+              style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}
+            >
+              <div
+                className="absolute inset-0 h-96 bg-linear-to-t from-black to-transparent"
+              >
+              </div>
+              <div className="absolute inset-0 content-block flex flex-col gap-2 h-96 text-white p-4">
+                {/* {
+                feature.icon && imageUrl && imageData && (
+                  <div className="w-full flex items-start justify-center my-0 not-prose">
+                    <Image src={imageUrl} alt={imageData.altText || feature.title || ''} width={width} height={height} />
+                  </div>
+                )
+              } */}
+                <div className="basis-2/3 mix-blend-normal">&nbsp;</div>
+                <div className="basis-1/3 mix-blend-normal">
+                  <h3 className="text-center tracking-tighter mt-0 text-balance text-xl text-white">{feature.title}</h3>
+                  <p className="text-center text-base">{feature.description}</p>
+                </div>
+              </div>
+            </div>
+
+          )
+        })}
+      </div>
+
+    </div>
+  );
+}

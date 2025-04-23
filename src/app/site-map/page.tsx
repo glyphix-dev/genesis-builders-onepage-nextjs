@@ -9,6 +9,7 @@ import Prose from "@/components/Prose";
 import Main from "@/components/Main";
 import Link from "next/link";
 import { tryCatch } from "@/lib/tryCatch";
+import { v4 as uuidv4 } from 'uuid';
 const revalidate = getRevalidation(QueryTypes.Sitemap)
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default async function Page() {
                       <h2>{key}</h2>
                       <ul>
                         {data[key].map((link: { slug: { current: string }, title: string }) => (
-                          <li key={link.slug?.current}>
+                          <li key={uuidv4()}>
                             <Link href={`/${link.slug?.current}`}>
                               <article className="flex flex-col gap-4">
                                 <header>

@@ -5,7 +5,7 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-
+import { v4 as uuidv4 } from 'uuid';
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -280,7 +280,7 @@ function CarouselIndicators({
     >
       {Array.from({ length: count }).map((_, index) => (
         <button
-          key={index}
+          key={uuidv4()}
           role="tab"
           aria-selected={selectedIndex === index}
           aria-label={`Go to slide ${index + 1}`}

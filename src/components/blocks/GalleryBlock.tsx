@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { type GalleryBlock, type SanityImageHotspot, type SanityImageCrop, internalGroqTypeReferenceTo } from '@/types/types.sanity'
 import imageBuilder from '@sanity/image-url'
 import { client } from '@/sanity/lib/client'
-
+import { v4 as uuidv4 } from 'uuid';
 interface GalleryBlockProps {
   value: GalleryBlock & {
     images?: Array<Image>
@@ -58,7 +58,7 @@ export default function GalleryBlock({ value }: GalleryBlockProps) {
       <div className="flex gap-2">
         {value?.images?.map((image: Image, index: number) => (
           <button
-            key={image._key}
+            key={uuidv4()}
             onClick={() => setSelectedImage(index)}
             className={`relative aspect-square w-full overflow-hidden ${selectedImage === index
               ? 'ring-2 ring-primary ring-offset-2'

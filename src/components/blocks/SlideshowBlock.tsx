@@ -13,6 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import { v4 as uuidv4 } from 'uuid';
 
 interface SlideshowBlockProps extends SlideshowBlockType {
   className?: string
@@ -38,8 +39,8 @@ const SlideshowBlock: React.FunctionComponent<SlideshowBlockProps> = (props) => 
           }) => {
             const imageUrl = createImageUrlBuilder(client).image(image).width(640).height(360).fit('crop').dpr(2).url();
             return (
-              <CarouselItem key={image._key}>
-                <Image priority key={image._key} src={imageUrl} alt="Slideshow Image" width={640} height={360} className="w-full h-full object-cover" />
+              <CarouselItem key={uuidv4()}>
+                <Image priority src={imageUrl} alt="Slideshow Image" width={640} height={360} className="w-full h-full object-cover" />
               </CarouselItem>
             )
           })}

@@ -2,8 +2,8 @@
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 @config "../../tailwind.config.ts";
-@custom-variant dark (&:is(.dark *));
-@custom-variant theme-home (&:is(.theme-home *));
+/* @custom-variant dark (&:is(.dark *));
+@custom-variant theme-home (&:is(.theme-home *)); */
 
 @theme inline {
   --color-white: var(--white);
@@ -53,7 +53,7 @@
   --black: oklch(0% 0 0);
 
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0 0 0);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -162,6 +162,10 @@
     margin-top: 0 !important;
   }
 
+  .portable-text-block > h2:first-of-type {
+    margin-top: 0 !important;
+  }
+
   .prose:last-child,
   .block-content > *:last-child,
   .prose-block > *:last-child,
@@ -184,6 +188,6 @@
   }
 
   p:empty {
-    display: none;
+    display: none !important;
   }
 }

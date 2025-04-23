@@ -31,15 +31,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth scroll-p-28">
+    <html lang="en" className="scroll-smooth scroll-p-28 bg-secondary text-secondary-foreground">
       <body
-        className={`${mtSerifDisplay.variable} ${dmSans.variable} antialiased bg-background text-foreground`}
+        className={`${mtSerifDisplay.variable} ${dmSans.variable} antialiased`}
       >
         <Script type="text/javascript" src="//embeds.iubenda.com/widgets/1c3f37aa-fb03-4f6b-8055-14cec2dbea11.js"></Script>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string} />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string} />
         <SkipToContent />
-        {children}
+        <div className="bg-background text-foreground">
+          {children}
+        </div>
         <Toaster richColors />
       </body>
     </html>

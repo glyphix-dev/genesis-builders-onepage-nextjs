@@ -23,6 +23,7 @@ export type IImageBlockProps = {
     figure?: boolean;
     width?: number;
     height?: number;
+    className?: string;
   };
 };
 
@@ -38,7 +39,7 @@ export const AdvancedImageBlock: React.FunctionComponent<IImageBlockProps> = asy
   };
 
   return options?.figure ? (
-    <figure className="mx-auto">
+    <figure className={cn("mx-auto", options?.className)}>
       {metadata?.title && (
         <p className="text-2xl font-bold">
           {metadata?.title}
@@ -62,7 +63,10 @@ export const AdvancedImageBlock: React.FunctionComponent<IImageBlockProps> = asy
       image={transformedImage}
       width={options?.width}
       height={options?.height}
-      className={cn("mx-auto bg-transparent", options?.circle && "rounded-full")}
+      className={cn(
+        !options?.className ? "w-2/3 mx-auto md:mx-0 md:w-full" : options?.className,
+        options?.circle && "rounded-full"
+      )}
       alt={metadata?.alt}
     />
   );

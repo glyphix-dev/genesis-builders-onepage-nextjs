@@ -35,36 +35,10 @@ import TwoColumnList from "./TwoColumnList";
 
 export const components = {
   types: {
-    image: ({ value }: { value: IImageBlockProps }) => {
-      return (
-        <ImageBlock {...value} />
-      );
-    },
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
       return (
         <AdvancedImageBlock {...value} />
       );
-    },
-    twoColumnListBlock: ({ value }: { value: TwoColumnListBlockType }) => {
-      return (
-        <Block options={value?.options}>
-          <TwoColumnList {...value} />
-        </Block>
-      );
-    },
-    featuresBlock: ({ value }: { value: FeaturesBlockType }) => {
-      return (
-        <Block options={value?.options}>
-          <FeaturesBlock {...value} />
-        </Block>
-      );
-    },
-    slideshowBlock: ({ value }: { value: SlideshowBlockType }) => {
-      return value && (
-        <Block options={value?.options}>
-          <SlideshowBlock {...value} />
-        </Block>
-      )
     },
     bento2Block: ({ value }: { value: Bento2BlockType }) => {
       return value && (
@@ -73,24 +47,10 @@ export const components = {
         </Block>
       )
     },
-    youtubeBlock: async ({ value }: { value: YoutubeBlockType }) => {
-      return (
-        <Block className="aspect-video mx-auto mb-16 max-w-[640px]">
-          <YouTube value={value} />
-        </Block>
-      );
-    },
-    galleryBlock: ({ value }: { value: GalleryBlockType }) => {
+    callToActionBlock: ({ value }: { value: CallToActionBlockType }) => {
       return (
         <Block options={value?.options}>
-          <GalleryBlock value={value} />
-        </Block>
-      );
-    },
-    testimonialBlock: ({ value }: { value: TestimonialBlockType }) => {
-      return (
-        <Block options={value?.options}>
-          <TestimonialBlockComponent value={value} />
+          <CallToActionBlock value={value} />
         </Block>
       );
     },
@@ -101,13 +61,6 @@ export const components = {
         </Block>
       );
     },
-    heroBlock: ({ value }: { value: HeroBlockType }) => {
-      return (
-        <Block options={value?.options}>
-          <HeroBlock value={value} />
-        </Block>
-      );
-    },
     contentBlock: ({ value }: { value: ContentBlockType }) => {
       return (
         <Block options={value?.options}>
@@ -115,10 +68,29 @@ export const components = {
         </Block>
       );
     },
-    callToActionBlock: ({ value }: { value: CallToActionBlockType }) => {
+    image: ({ value }: { value: IImageBlockProps }) => {
+      return (
+        <ImageBlock {...value} />
+      );
+    },
+    featuresBlock: ({ value }: { value: FeaturesBlockType }) => {
       return (
         <Block options={value?.options}>
-          <CallToActionBlock value={value} />
+          <FeaturesBlock {...value} />
+        </Block>
+      );
+    },
+    galleryBlock: ({ value }: { value: GalleryBlockType }) => {
+      return (
+        <Block options={value?.options}>
+          <GalleryBlock value={value} />
+        </Block>
+      );
+    },
+    heroBlock: ({ value }: { value: HeroBlockType }) => {
+      return (
+        <Block options={value?.options}>
+          <HeroBlock value={value} />
         </Block>
       );
     },
@@ -129,12 +101,49 @@ export const components = {
         </Block>
       );
     },
+    slideshowBlock: ({ value }: { value: SlideshowBlockType }) => {
+      return value && (
+        <Block options={value?.options}>
+          <SlideshowBlock {...value} />
+        </Block>
+      )
+    },
     statsBlock: ({ value }: { value: StatsBlockType }) => {
       return (
         <Block options={value?.options}>
           <StatsBlock value={value} />
         </Block>
       );
+    },
+    testimonialBlock: ({ value }: { value: TestimonialBlockType }) => {
+      return (
+        <Block options={value?.options}>
+          <TestimonialBlockComponent value={value} />
+        </Block>
+      );
+    },
+    twoColumnListBlock: ({ value }: { value: TwoColumnListBlockType }) => {
+      return (
+        <Block options={value?.options}>
+          <TwoColumnList {...value} />
+        </Block>
+      );
+    },
+    youtubeBlock: async ({ value }: { value: YoutubeBlockType }) => {
+      return (
+        <Block className="aspect-video mx-auto mb-16 max-w-[640px]">
+          <YouTube value={value} />
+        </Block>
+      );
+    },
+  },
+  block: {
+    normal: ({ children }: { children: React.ReactNode }) => {
+      return children ? (
+        <p className="">
+          {children}
+        </p>
+      ) : null;
     },
   },
   marks: {

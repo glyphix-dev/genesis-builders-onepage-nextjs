@@ -9,51 +9,77 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-import { Button } from '../ui/button';
 import { ContactForm } from '../ContactForm';
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { components } from './index';
+import { cn } from '@/lib/utils';
 
 interface ICallToActionBlockProps {
   value: CallToActionBlockType
 }
 
 const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
-  const { body, buttonText, formDisplay, } = props.value
-  return (
-    <div className='flex flex-col md:flex-row gap-[var(--block-padding)] items-center justify-center md:justify-between'>
-      <div className='portable-text-block w-full md:basis-2/3 text-center md:text-left'>
-        {body && (
-          <PortableText value={body} components={components} />
-        )}
-      </div>
-      <div className='w-full md:basis-1/3 flex justify-center md:justify-end items-center'>
-        {formDisplay === 'inline' && (
-          <div className='w-full not-prose'>
-            <ContactForm />
-          </div>
-        )}
-        {formDisplay === 'modal' && (
-          <div className='not-prose'>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="default" size="lg">{buttonText}</Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Get Started!</DialogTitle>
-                  <DialogDescription>
-                    Tell us a bit about yourself so we can get started on rebuilding your home.
-                  </DialogDescription>
-                </DialogHeader>
-                <ContactForm />
-              </DialogContent>
-            </Dialog>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  switch (props?.value?.options?.layout) {
+    case 'form':
+      return <FormLayout {...props} />;
+    default:
+      return <DefaultLayout {...props} />;
+  }
 };
 
 export default CallToActionBlock;
+
+const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
+  const { body, buttonText } = props.value
+  return (
+    <div className={cn(
+      'flex flex-col gap-[var(--block-padding)] items-center justify-center md:justify-between text-center',
+    )}>
+      <div className='portable-text-block w-full text-center'>
+        {body && (
+          <PortableText value={body} components={components as Partial<PortableTextReactComponents>} />
+        )}
+      </div>
+      <div className='w-full flex justify-center items-center'>
+        <div className='not-prose flex justify-center items-center'>
+          <Dialog>
+            <DialogTrigger>
+              <span className='bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-md'>{buttonText}</span>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>{buttonText}</DialogTitle>
+                <DialogDescription>
+                  Tell us a bit about yourself so we can get started on rebuilding your home.
+                </DialogDescription>
+              </DialogHeader>
+              <ContactForm />
+            </DialogContent>
+          </Dialog>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const FormLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
+  const { body, buttonText, options } = props.value
+
+  return (
+    <div className={cn(
+      'flex flex-row gap-[var(--block-padding)] justify-start md:justify-between text-center',
+      options?.vAlign === 'top' ? 'items-start' : options?.vAlign === 'bottom' ? 'items-end' : 'items-center'
+    )}>
+      <div className='portable-text-block w-full text-left'>
+        {body && (
+          <PortableText value={body} components={components as Partial<PortableTextReactComponents>} />
+        )}
+      </div>
+      <div className='w-full flex justify-center items-center'>
+        <div className='w-full not-prose'>
+          <ContactForm buttonText={buttonText} />
+        </div>
+      </div>
+    </div>
+  )
+}

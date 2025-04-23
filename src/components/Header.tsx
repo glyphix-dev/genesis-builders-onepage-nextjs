@@ -23,11 +23,15 @@ const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false,
   const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
   const HeaderChildren = () => {
     return (<Container>
-      <div id={id} className="flex justify-between items-center relative py-4 px-8 xl:px-0">
+      <div id={id} className="flex justify-between items-center relative py-4 px-8 ">
         <Logo />
-        <NavBar className="hidden md:block" menu={mainMenu} />
+        <NavBar
+          className="hidden lg:flex font-bold text-primary"
+          linkClassName="text-base"
+          menu={mainMenu}
+        />
         {/* <SearchForm className="hidden md:flex" /> */}
-        <MobileMenu menu={mobileMenu}>
+        <MobileMenu menu={mobileMenu} className="lg:hidden">
           <Logo />
         </MobileMenu>
       </div>

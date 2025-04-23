@@ -10,8 +10,7 @@ export async function POST(req: Request) {
     Last Name: ${data.lastName}
     Email: ${data.email}
     Phone: ${data.phone}
-    Contact Method: ${data.contactMethod}
-    Start: ${data.start}
+    Address: ${data.address}
     
     This is an automated email. This data is not stored. Please copy to your records.
     Please do not reply directly to this email.

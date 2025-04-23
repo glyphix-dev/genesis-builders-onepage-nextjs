@@ -10,7 +10,7 @@ import {
 import SanityImage from '../SanityImage';
 import { PortableText } from '@portabletext/react';
 import { ISanityImageProps } from '../SanityImage';
-
+import { v4 as uuidv4 } from 'uuid';
 interface ICarouselBlockProps {
   value: CarouselBlockType
 }
@@ -21,7 +21,7 @@ const CarouselBlock: React.FunctionComponent<ICarouselBlockProps> = async ({ val
       <CarouselContent>
         {value.images?.map(async (slide) => {
           return (
-            <CarouselItem key={slide._key} className='relative p-0 w-full'>
+            <CarouselItem key={uuidv4()} className='relative p-0 w-full'>
               <figure className='relative w-full'>
                 <SanityImage
                   image={slide.image as unknown as ISanityImageProps['image']}

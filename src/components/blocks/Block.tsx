@@ -1,4 +1,8 @@
+"use client"
+
 import * as React from 'react';
+import { motion } from "motion/react"
+
 import type {
   AdvancedImage as AdvancedImageBlockType,
   ContentBlock as ContentBlockType,
@@ -12,7 +16,6 @@ import type {
   StatsBlock as StatsBlockType,
   TestimonialBlock
 } from "@/types/types.sanity";
-import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/lib/utils';
 import Container from '@/components/Container';
 
@@ -42,17 +45,22 @@ const Block: React.FunctionComponent<IBlockProps> = ({ children, className, opti
 
   const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "";
 
-  return <div id={options && 'id' in options ? options.id : uuidv4()} className={cn(
-    "w-full",
-    themeClass,
-    blockTheme,
-    fullWidth,
-    className
-  )}>
+  return <motion.div
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.75 }}
+    id={options && 'id' in options ? options.id : ""}
+    className={cn(
+      "w-full",
+      themeClass,
+      blockTheme,
+      fullWidth,
+      className
+    )}>
     <Container>
       {children}
     </Container>
-  </div>
+  </motion.div>
 };
 
 export default Block;

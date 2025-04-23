@@ -7,7 +7,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Link from 'next/link';
 import {
@@ -19,7 +18,8 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/ContactForm';
-import { usePathname } from 'next/navigation';
+import { v4 as uuidv4 } from 'uuid';
+
 interface INavBarProps {
   menu: {
     _key: string;
@@ -27,18 +27,17 @@ interface INavBarProps {
     url: string;
   }[];
   className?: string;
+  linkClassName?: string;
 }
 
-const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className }) => {
-
-  const pathname = usePathname();
+const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkClassName }) => {
   return (
-    <NavigationMenu className={cn("relative flex items-center", className)}>
-      <NavigationMenuList className="relative gap-2">
+    <NavigationMenu className={cn("relative items-center", className)}>
+      <NavigationMenuList className="relative gap-1">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
-          <NavigationMenuItem key={item._key} className="flex justify-center items-center text-primary">
+          <NavigationMenuItem key={uuidv4()} className="">
             <Link href={item.url} legacyBehavior passHref scroll={true}>
-              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), pathname.includes(item.url) && "bg-accent text-accent-foreground tracking-tighter")}>
+              <NavigationMenuLink className={cn(linkClassName)}>
                 {item.label}
               </NavigationMenuLink>
             </Link>

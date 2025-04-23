@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Button } from './ui/button';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/utils';
+import { v4 as uuidv4 } from 'uuid';
 
 interface IPaginationProps {
   queryString?: string;
@@ -65,9 +66,9 @@ const Pagination: React.FunctionComponent<IPaginationProps> = ({
           Previous
         </Link>
       </Button>
-      {getPageNumbers().map((pageNum, index) => (
+      {getPageNumbers().map((pageNum) => (
         <Button
-          key={index}
+          key={uuidv4()}
           className={`hidden md:block px-0 py-0`}
           disabled={pageNum === currentPage}
         >

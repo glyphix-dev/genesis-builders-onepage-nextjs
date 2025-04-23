@@ -164,6 +164,7 @@ export type AdvancedImage = {
     height?: number
     circle?: boolean
     figure?: boolean
+    className?: string
   }
 }
 
@@ -241,6 +242,7 @@ export type CallToActionBlock = {
     vAlign?: 'top' | 'center' | 'bottom'
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
+    layout?: 'default' | 'form'
   }
 }
 
@@ -559,6 +561,7 @@ export type FeaturesBlock = {
     theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
     useLandingPageStyles?: boolean
     columns?: number
+    layout?: 'default' | 'thumbnails'
   }
 }
 

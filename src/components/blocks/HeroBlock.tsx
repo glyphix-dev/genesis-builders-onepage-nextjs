@@ -1,25 +1,31 @@
 import * as React from 'react';
 import { HeroBlock as HeroBlockType, BlockContent } from '@/types/types.sanity';
-import { getImageData } from '@/lib/utils';
-import SanityImage from '../SanityImage';
+import { cn, getImageData } from '@/lib/utils';
 import { components } from '../blocks';
-import { PortableText } from '@portabletext/react';
-
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import Container from '../Container';
 interface IHeroBlockProps {
   value: HeroBlockType
 }
 
 const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) => {
-  const { image, valueProposition } = value;
+  const { image, valueProposition, options } = value;
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
+  const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "flex justify-center items-center";
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-      <div className="order-2 p-12">
-        <PortableText value={valueProposition as BlockContent} components={components} />
-      </div>
-      <div className="order-1 relative w-full h-full">
-        <div className="aspect-video md:aspect-square" />
-        {imageData && <SanityImage className="absolute top-0 right-0 bottom-0 left-0 not-prose basis-1 object-cover w-full h-full" image={imageData} alt={imageData.altText || ''} width={600} height={600} />}
+    <div className={cn(
+      "py-24 bg-cover bg-center bg-black/40 bg-blend-multiply",
+      options?.bgFullWidth ? fullWidth : ""
+    )} style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}>
+      <div className={cn(
+        "order-2 p-12 text-center text-white prose-headings:mb-2 prose-headings:text-white prose-p:text-white prose-p:text-balance prose-p:text-center",
+      )}>
+        {options?.bgFullWidth ? <Container>
+          <PortableText value={valueProposition as BlockContent} components={components as Partial<PortableTextReactComponents>} />
+        </Container> :
+          <PortableText value={valueProposition as BlockContent} components={components as Partial<PortableTextReactComponents>} />
+        }
       </div>
     </div>
   );

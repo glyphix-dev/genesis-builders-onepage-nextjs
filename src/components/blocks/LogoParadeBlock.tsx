@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { client } from '@/sanity/lib/client';
 import urlBuilder from '@sanity/image-url';
 import { SanityAsset } from '@sanity/image-url/lib/types/types';
+import { v4 as uuidv4 } from 'uuid';
 interface ILogoParadeBlockProps {
   value: LogoParadeBlockType
 }
@@ -18,7 +19,7 @@ const LogoParadeBlock: React.FunctionComponent<ILogoParadeBlockProps> = (props) 
           const url = builder.image(image).width(400).height(400).fit('max').dpr(2).auto('format').url()
           return url && (
             <Image
-              key={image._key}
+              key={uuidv4()}
               src={url}
               alt={image.alt}
               width={image.asset.width || 400}

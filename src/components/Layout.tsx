@@ -12,12 +12,12 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children, hasStickyHead
   return (
     <>
       <Header isSticky={hasStickyHeader} />
-      <div className="flex flex-col min-h-screen relative px-8 xl:px-0 pb-[var(--layout-spacing)]">
-        <div className={cn("relative animate-fade-in", hasStickyHeader ? "pt-8" : "")}>
+      <div className="flex flex-col min-h-screen relative px-8  pb-[var(--layout-spacing)] overflow-x-hidden">
+        <div className={cn("relative animate-fade-in", hasStickyHeader ? "" : "")}>
           {children}
         </div>
       </div>
-      <Footer showLogo />
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { PortableText } from 'next-sanity';
+import { PortableText, PortableTextReactComponents } from 'next-sanity';
 import * as React from 'react';
 import { components } from './blocks';
 import LandingPageContent from './LandingPageContent';
@@ -14,7 +14,7 @@ const BodyContent: React.FunctionComponent<IBodyContentProps> = ({ data }) => {
       return (
         <LandingPageContent>
           {data.landingContent && (
-            <PortableText value={data.landingContent} components={components} />
+            <PortableText value={data.landingContent} components={components as Partial<PortableTextReactComponents>} />
           )}
         </LandingPageContent>
       )

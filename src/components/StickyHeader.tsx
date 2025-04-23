@@ -24,7 +24,7 @@ const StickyHeader: React.FunctionComponent<IStickyHeaderProps> = ({ children, c
     };
   }, []);
   return (
-    <header className={cn("sticky top-0 z-50 w-full", className, isSticky && "shadow-2xl")}>
+    <header className={cn("sticky top-0 z-50 w-full", className, isSticky && "shadow-md")}>
       {children}
     </header>
   );

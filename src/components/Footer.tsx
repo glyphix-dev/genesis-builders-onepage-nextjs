@@ -18,12 +18,15 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
   const menu = await client.fetch(queries.settings.footerMenu, {}, revalidate);
 
   return (
-    <footer className={cn("w-full bg-secondary text-secondary-foreground px-8 xl:px-0", className)}>
+    <footer className={cn("w-full bg-secondary text-secondary-foreground py-3 px-8 ", className)}>
       <Container>
-        <div className="w-full h-32 flex justify-between items-center">
+        <div className="w-full flex justify-between items-center">
           <div className="flex gap-2 items-center">
             {showLogo && <Logo />}
-            <p>©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved.</p>
+            <p>
+              ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved.<br />
+              <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link>
+            </p>
           </div>
           <nav className="flex items-center gap-4">
             {menu?.map((item: { _key: string, label: string, url: string }) => (
