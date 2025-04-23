@@ -33,7 +33,7 @@ interface INavBarProps {
 const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkClassName }) => {
   return (
     <NavigationMenu className={cn("relative items-center", className)}>
-      <NavigationMenuList className="relative gap-1">
+      <NavigationMenuList className="relative gap-4">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={uuidv4()} className="">
             <Link href={item.url} legacyBehavior passHref scroll={true}>
