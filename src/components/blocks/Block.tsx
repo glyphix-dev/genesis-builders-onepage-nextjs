@@ -19,10 +19,24 @@ import type {
 import { cn } from '@/lib/utils';
 import Container from '@/components/Container';
 
-enum ThemeClasses {
-  DEFAULT = "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
-  HOME = "prose prose-spacing-normal max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h1:text-7xl prose-h2:text-5xl prose-h3:text-4xl prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg prose-p:first-of-type:text-2xl prose-p:text-lg prose-p:leading-normal prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance",
-  FEATURES = "prose prose-2xl theme-features max-w-none"
+const ThemeClasses = {
+  DEFAULT: "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
+  HOME: cn(
+    "prose prose-spacing-normal max-w-none",
+    "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance",
+    "prose-h1:text-6xl sm:prose-h1:text-7xl",
+    "prose-h2:text-5xl md:prose-h2:text-6xl",
+    "prose-h3:text-2xl md:prose-h3:text-4xl",
+    "prose-h4:text-xl md:prose-h4:text-4xl",
+    "prose-h5:text-lg md:prose-h5:text-xl",
+    "prose-h6:text-base md:prose-h6:text-lg",
+    "prose-p:first-of-type:text-xl md:prose-p:first-of-type:text-2xl",
+    "prose-p:text-lg prose-p:leading-normal",
+    "prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance"
+  ),
+  FEATURES: cn(
+    "prose prose-2xl theme-features max-w-none"
+  )
 }
 
 enum BlockThemes {

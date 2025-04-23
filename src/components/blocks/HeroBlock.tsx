@@ -15,16 +15,21 @@ const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) =>
 
   return (
     <div className={cn(
-      "py-24 bg-cover bg-center bg-black/40 bg-blend-multiply",
+      "py-12 lg:py-24 bg-cover bg-center bg-black/40 bg-blend-multiply",
       options?.bgFullWidth ? fullWidth : ""
     )} style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}>
       <div className={cn(
-        "order-2 p-12 text-center text-white prose-headings:mb-2 prose-headings:text-white prose-p:text-white prose-p:text-balance prose-p:text-center",
+        "px-6 text-center text-white prose-headings:mb-2 prose-headings:text-white prose-p:text-white prose-p:text-balance prose-p:text-center",
       )}>
-        {options?.bgFullWidth ? <Container>
-          <PortableText value={valueProposition as BlockContent} components={components} />
-        </Container> :
-          <PortableText value={valueProposition as BlockContent} components={components} />
+        {options?.bgFullWidth ?
+          (
+            <Container>
+              <PortableText value={valueProposition as BlockContent} components={components} />
+            </Container>
+          ) :
+          (
+            <PortableText value={valueProposition as BlockContent} components={components} />
+          )
         }
       </div>
     </div>

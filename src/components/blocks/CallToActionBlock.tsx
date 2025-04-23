@@ -67,7 +67,7 @@ const FormLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => 
 
   return (
     <div className={cn(
-      'flex flex-row gap-[var(--block-padding)] justify-start md:justify-between text-center',
+      'flex flex-col md:flex-row gap-[var(--block-padding)] justify-start md:justify-between text-center',
       options?.vAlign === 'top' ? 'items-start' : options?.vAlign === 'bottom' ? 'items-end' : 'items-center'
     )}>
       <div className='portable-text-block w-full text-left'>
