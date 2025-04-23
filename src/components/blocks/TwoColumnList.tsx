@@ -2,7 +2,7 @@ import { TwoColumnListBlock } from '@/types/types.sanity';
 import * as React from 'react';
 import Heading from '../Heading';
 import type { IHeadingProps } from '../Heading';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
 import { components } from './index';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -18,7 +18,7 @@ const TwoColumnList: React.FunctionComponent<TwoColumnListBlock> = ({ heading, l
                 <Heading text={item.heading || ""} level={heading?.level ? heading.level + 1 as IHeadingProps["level"] : 3} className="text-xl font-bold" />
               </div>
               <div className="block-content">
-                {item.body && <PortableText value={item.body} components={components as Partial<PortableTextReactComponents>} />}
+                {item.body && <PortableText value={item.body} components={components} />}
               </div>
             </div>
           ))}
@@ -30,7 +30,7 @@ const TwoColumnList: React.FunctionComponent<TwoColumnListBlock> = ({ heading, l
                 <Heading text={item.heading || ""} level={heading?.level ? heading.level + 1 as IHeadingProps["level"] : 3} className="text-xl font-bold" />
               </div>
               <div className="block-content">
-                {item.body && <PortableText value={item.body} components={components as Partial<PortableTextReactComponents>} />}
+                {item.body && <PortableText value={item.body} components={components} />}
               </div>
             </div>
           ))}

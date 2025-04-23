@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { ContactForm } from '../ContactForm';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
 import { components } from './index';
 import { cn } from '@/lib/utils';
 
@@ -37,7 +37,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
     )}>
       <div className='portable-text-block w-full text-center'>
         {body && (
-          <PortableText value={body} components={components as Partial<PortableTextReactComponents>} />
+          <PortableText value={body} components={components} />
         )}
       </div>
       <div className='w-full flex justify-center items-center'>
@@ -72,7 +72,7 @@ const FormLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => 
     )}>
       <div className='portable-text-block w-full text-left'>
         {body && (
-          <PortableText value={body} components={components as Partial<PortableTextReactComponents>} />
+          <PortableText value={body} components={components} />
         )}
       </div>
       <div className='w-full flex justify-center items-center'>

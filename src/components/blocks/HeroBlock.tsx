@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HeroBlock as HeroBlockType, BlockContent } from '@/types/types.sanity';
 import { cn, getImageData } from '@/lib/utils';
 import { components } from '../blocks';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
 import Container from '../Container';
 interface IHeroBlockProps {
   value: HeroBlockType
@@ -22,9 +22,9 @@ const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) =>
         "order-2 p-12 text-center text-white prose-headings:mb-2 prose-headings:text-white prose-p:text-white prose-p:text-balance prose-p:text-center",
       )}>
         {options?.bgFullWidth ? <Container>
-          <PortableText value={valueProposition as BlockContent} components={components as Partial<PortableTextReactComponents>} />
+          <PortableText value={valueProposition as BlockContent} components={components} />
         </Container> :
-          <PortableText value={valueProposition as BlockContent} components={components as Partial<PortableTextReactComponents>} />
+          <PortableText value={valueProposition as BlockContent} components={components} />
         }
       </div>
     </div>

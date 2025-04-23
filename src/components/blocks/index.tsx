@@ -138,8 +138,8 @@ export const components = {
     },
   },
   block: {
-    normal: ({ children }: { children: string[] }) => {
-      return children && children[0]?.length > 0 ? (
+    normal: ({ children }: { children?: React.ReactNode }) => {
+      return children ? (
         <p className="">
           {children}
         </p>

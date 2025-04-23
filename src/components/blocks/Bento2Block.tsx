@@ -5,7 +5,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import Heading from '../Heading';
 import { components } from '.';
-import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
 
 enum VAlign {
   top = 'items-start',
@@ -24,10 +24,10 @@ const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
           `${options?.reverse ? 'flex-col-reverse md:flex-row-reverse' : 'flex-col md:flex-row'} ${VAlign[options?.vAlign || 'center']}`
         )}>
         <div className={cn("portable-text-block", options?.offset ? 'basis-1 md:basis-2/3' : 'basis-1 md:basis-1/2')}>
-          {left && <PortableText value={left} components={components as Partial<PortableTextReactComponents>} />}
+          {left && <PortableText value={left} components={components} />}
         </div>
         <div className={cn("portable-text-block", options?.offset ? 'w-full md:basis-1/3' : 'w-full md:basis-1/2')}>
-          {right && <PortableText value={right} components={components as Partial<PortableTextReactComponents>} />}
+          {right && <PortableText value={right} components={components} />}
         </div>
       </div>
     </div>
