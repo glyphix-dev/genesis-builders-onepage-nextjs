@@ -42,28 +42,28 @@ export const components = {
     },
     bento2Block: ({ value }: { value: Bento2BlockType }) => {
       return value && (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="bento2">
           <Bento2Block {...value} />
         </Block>
       )
     },
     callToActionBlock: ({ value }: { value: CallToActionBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="callToAction">
           <CallToActionBlock value={value} />
         </Block>
       );
     },
     carouselBlock: ({ value }: { value: CarouselBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="carousel">
           <CarouselBlock value={value} />
         </Block>
       );
     },
     contentBlock: ({ value }: { value: ContentBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="content">
           <ContentBlock value={value} />
         </Block>
       );
@@ -75,63 +75,63 @@ export const components = {
     },
     featuresBlock: ({ value }: { value: FeaturesBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="features">
           <FeaturesBlock {...value} />
         </Block>
       );
     },
     galleryBlock: ({ value }: { value: GalleryBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="gallery">
           <GalleryBlock value={value} />
         </Block>
       );
     },
     heroBlock: ({ value }: { value: HeroBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="hero">
           <HeroBlock value={value} />
         </Block>
       );
     },
     logoParadeBlock: ({ value }: { value: LogoParadeBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="logoParade">
           <LogoParadeBlock value={value} />
         </Block>
       );
     },
     slideshowBlock: ({ value }: { value: SlideshowBlockType }) => {
       return value && (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="slideshow">
           <SlideshowBlock {...value} />
         </Block>
       )
     },
     statsBlock: ({ value }: { value: StatsBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="stats">
           <StatsBlock value={value} />
         </Block>
       );
     },
     testimonialBlock: ({ value }: { value: TestimonialBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="testimonial">
           <TestimonialBlockComponent value={value} />
         </Block>
       );
     },
     twoColumnListBlock: ({ value }: { value: TwoColumnListBlockType }) => {
       return (
-        <Block options={value?.options}>
+        <Block options={value?.options} type="twoColumnList">
           <TwoColumnList {...value} />
         </Block>
       );
     },
     youtubeBlock: async ({ value }: { value: YoutubeBlockType }) => {
       return (
-        <Block className="aspect-video mx-auto mb-16 max-w-[640px]">
+        <Block className="aspect-video mx-auto mb-16 max-w-[640px]" type="youtube">
           <YouTube value={value} />
         </Block>
       );

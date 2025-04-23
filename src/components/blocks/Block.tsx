@@ -34,34 +34,50 @@ enum BlockThemes {
 }
 
 interface IBlockProps {
+  type?: 'advancedImage' | 'hero' | 'content' | 'carousel' | 'slideshow' | 'bento2' | 'gallery' | 'testimonial' | 'logoParade' | 'stats' | 'callToAction' | 'youtube' | 'twoColumnList' | 'features'
   children?: React.ReactNode
   className?: string
   options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlock['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options']
 }
 
-const Block: React.FunctionComponent<IBlockProps> = ({ children, className, options }) => {
+const Block: React.FunctionComponent<IBlockProps> = ({ children, className, options, type }) => {
   const themeClass = options && 'theme' in options ? ThemeClasses[options.theme as keyof typeof ThemeClasses] || ThemeClasses['DEFAULT'] : ThemeClasses['DEFAULT'];
   const blockTheme = options && 'blockTheme' in options ? BlockThemes[options.blockTheme as keyof typeof BlockThemes] || BlockThemes['DEFAULT'] : BlockThemes['DEFAULT'];
 
   const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "";
 
-  return <motion.div
-    initial={{ opacity: 0, y: 60 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.25, duration: 0.75 }}
-    viewport={{ once: true }}
-    id={options && 'id' in options ? options.id : ""}
-    className={cn(
-      "w-full",
-      themeClass,
-      blockTheme,
-      fullWidth,
-      className
-    )}>
-    <Container>
-      {children}
-    </Container>
-  </motion.div>
+  return type && !["advancedImage", "hero", "youtube"].includes(type) ? (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.25, duration: 0.75 }}
+      viewport={{ once: true }}
+      id={options && 'id' in options ? options.id : ""}
+      className={cn(
+        "w-full",
+        themeClass,
+        blockTheme,
+        fullWidth,
+        className
+      )}>
+      <Container>
+        {children}
+      </Container>
+    </motion.div>) : (
+    <div
+      id={options && 'id' in options ? options.id : ""}
+      className={cn(
+        "w-full",
+        themeClass,
+        blockTheme,
+        fullWidth,
+        className
+      )}>
+      <Container>
+        {children}
+      </Container>
+    </div>
+  )
 };
 
 export default Block;
