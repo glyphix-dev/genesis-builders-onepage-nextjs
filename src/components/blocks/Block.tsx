@@ -23,7 +23,7 @@ const ThemeClasses = {
   DEFAULT: "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
   HOME: cn(
     "prose prose-spacing-normal max-w-none",
-    "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance",
+    "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-center prose-headings:sm:text-left",
     "prose-h1:text-6xl sm:prose-h1:text-7xl",
     "prose-h2:text-5xl md:prose-h2:text-6xl",
     "prose-h3:text-2xl md:prose-h3:text-4xl",

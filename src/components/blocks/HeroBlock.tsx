@@ -11,15 +11,15 @@ interface IHeroBlockProps {
 const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) => {
   const { image, valueProposition, options } = value;
   const imageData = image?.asset ? await getImageData({ asset: image?.asset }) : null;
-  const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "flex justify-center items-center";
+  const fullWidth = options && 'bgFullWidth' in options && options.bgFullWidth ? "w-screen relative left-1/2 -translate-x-1/2" : "";
 
   return (
     <div className={cn(
-      "py-12 lg:py-24 bg-cover bg-center bg-black/40 bg-blend-multiply",
+      "py-12 md:py-24 bg-cover bg-center bg-black/40 bg-blend-multiply h-[700px] flex justify-center items-center",
       options?.bgFullWidth ? fullWidth : ""
     )} style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}>
       <div className={cn(
-        "px-6 text-center text-white prose-headings:mb-2 prose-headings:text-white prose-p:text-white prose-p:text-balance prose-p:text-center",
+        "px-6 text-center text-white prose-white prose-headings:text-center sm:prose-headings:text-center",
       )}>
         {options?.bgFullWidth ?
           (
