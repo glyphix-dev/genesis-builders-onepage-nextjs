@@ -48,7 +48,8 @@ const Block: React.FunctionComponent<IBlockProps> = ({ children, className, opti
   return <motion.div
     initial={{ opacity: 0, y: 60 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.75 }}
+    transition={{ delay: 0.25, duration: 0.75 }}
+    viewport={{ once: true }}
     id={options && 'id' in options ? options.id : ""}
     className={cn(
       "w-full",
