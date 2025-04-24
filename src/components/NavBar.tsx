@@ -47,7 +47,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="default" size="lg" className="font-bolder text-xl">Get Started</Button>
+              <Button variant="default" size="lg" className="font-bolder text-2xl">Get Started</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>

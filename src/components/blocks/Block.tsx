@@ -23,15 +23,16 @@ const ThemeClasses = {
   DEFAULT: "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
   HOME: cn(
     "prose prose-spacing-normal max-w-none",
-    "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-center prose-headings:sm:text-left",
+    "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance",
+    "prose-headings:text-center prose-headings:sm:text-left prose-headings:mb-4",
     "prose-h1:text-6xl prose-h1:sm:text-7xl",
-    "prose-h2:text-4xl prose-h2:sm:text-6xl",
+    "prose-h2:text-5xl prose-h2:sm:text-5xl",
     "prose-h3:text-2xl prose-h3:sm:text-4xl",
     "prose-h4:text-xl prose-h4:sm:text-4xl",
     "prose-h5:text-lg  prose-h5:sm:text-2xl",
     "prose-h6:text-base prose-h6:sm:text-xl",
     "prose-p:first-of-type:text-xl prose-p:first-of-type:xs:text-2xl prose-p:first-of-type:sm:text-2xl",
-    "prose-p:text-lg prose-p:leading-normal",
+    "prose-p:text-base prose-p:leading-normal",
     "prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance"
   ),
   FEATURES: cn(
@@ -43,7 +44,7 @@ const ThemeClasses = {
     "prose-h4:text-xl prose-h4:sm:text-4xl prose-h4:font-sans",
     "prose-h5:text-lg  prose-h5:sm:text-2xl prose-h5:font-sans",
     "prose-h6:text-base prose-h6:sm:text-xl prose-h6:font-sans",
-    "prose-p:text-left prose-p:sm:text-center",
+    "prose-p:text-base prose-p:leading-normal prose-p:text-left prose-p:sm:text-center",
   )
 }
 

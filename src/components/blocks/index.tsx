@@ -139,7 +139,8 @@ export const components = {
   },
   block: {
     normal: ({ children }: { children?: React.ReactNode }) => {
-      return children ? (
+      const text = children?.toString();
+      return text && text.length > 0 ? (
         <p className="">
           {children}
         </p>
