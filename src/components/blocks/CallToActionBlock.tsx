@@ -63,7 +63,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
 }
 
 const FormLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
-  const { body, buttonText, options } = props.value
+  const { body, options } = props.value
 
   return (
     <div className={cn(
