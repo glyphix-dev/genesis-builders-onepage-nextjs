@@ -12,11 +12,12 @@ export async function POST(req: Request) {
   if (post?.slug?.current) {
     revalidateTag(post.slug.current)
   }
-  revalidateTag(group)
-  // Revalidate paths
-  paths.forEach(path => {
-    revalidatePath(path);
 
+  revalidateTag(group as string)
+
+  // Revalidate paths
+  paths?.forEach(path => {
+    revalidatePath(path);
     const contentPath = [path, post.slug?.current || ''].join('/');
     revalidatePath(contentPath);
   });

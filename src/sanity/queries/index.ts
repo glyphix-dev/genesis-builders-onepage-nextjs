@@ -21,12 +21,12 @@ export const getQueryTags = (tag: QueryTypes) => {
   return [...CACHE_GROUPS[tag], ...CACHE_DEPENDENCIES[tag]];
 }
 
-export const getGroup = (tag: QueryTypes) => {
-  return CACHE_GROUPS[tag];
+export const getGroup = (tag?: QueryTypes) => {
+  return tag ? CACHE_GROUPS[tag] : [];
 }
 
-export const getDependencies = (tag: QueryTypes) => {
-  return CACHE_DEPENDENCIES[tag];
+export const getDependencies = (tag?: QueryTypes) => {
+  return tag ? CACHE_DEPENDENCIES[tag] : [];
 }
 
 export const getRevalidation = (tag: QueryTypes) => {
