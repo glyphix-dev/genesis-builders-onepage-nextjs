@@ -39,7 +39,7 @@ const ThemeClasses = {
     "prose-headings:text-left prose-headings:sm:text-center prose-headings:font-normal",
     "prose-h1:text-6xl prose-h1:sm:text-7xl prose-h1:font-serif prose-h1:text-center",
     "prose-h2:text-4xl prose-h2:sm:text-6xl prose-h2:font-serif prose-h2:text-center",
-    "prose-h3:text-xl prose-h3:sm:text-2xl prose-h3:font-sans",
+    "prose-h3:text-xl prose-h3:sm:text-2xl prose-h3:font-sans prose-h3:font-bold",
     "prose-h4:text-xl prose-h4:sm:text-4xl prose-h4:font-sans",
     "prose-h5:text-lg  prose-h5:sm:text-2xl prose-h5:font-sans",
     "prose-h6:text-base prose-h6:sm:text-xl prose-h6:font-sans",
