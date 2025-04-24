@@ -37,7 +37,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
       <NavigationMenuList className="relative gap-4">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={uuidv4()} className="">
-            <Link href={item.url} legacyBehavior passHref scroll={true} className="font-bold text-xl">
+            <Link href={item.url} legacyBehavior passHref scroll={true} className="font-bolder text-xl">
               <NavigationMenuLink className={cn(linkClassName, "text-xl")}>
                 {item.label}
               </NavigationMenuLink>
@@ -47,7 +47,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="default" size="lg">Get Started</Button>
+              <Button variant="default" size="lg" className="font-bolder text-xl">Get Started</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
