@@ -7,13 +7,12 @@ export async function POST(req: Request) {
   const group = getGroup(post._type as QueryTypes);
   const paths = CACHE_PATHS[post._type as QueryTypes];
 
-
+  console.log({ post, group, paths });
   // Revalidate tags
   if (post?.slug?.current) {
     revalidateTag(post.slug.current)
   }
   revalidateTag(group)
-
   // Revalidate paths
   paths.forEach(path => {
     revalidatePath(path);
