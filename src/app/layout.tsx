@@ -14,7 +14,7 @@ const mtSerifDisplay = DM_Serif_Display({
 });
 
 const dmSans = DM_Sans({
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-dm-sans",
   subsets: ["latin"],
 });
