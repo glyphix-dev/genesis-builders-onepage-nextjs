@@ -11,7 +11,7 @@ export type SitemapLink = {
 
 const getURL = (page: Page) => {
   return {
-    url: `${process.env.NODE_ENV === "production" ? process.env.VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL : "http://localhost:3000"}/${page.slug?.current || ""}`,
+    url: `https://${process.env.VERCEL_URL || ""}/${page.slug?.current || ""} `,
     lastModified: page._updatedAt || page.date,
     changeFrequency: 'monthly',
     priority: 0.8,
