@@ -9,7 +9,7 @@ export type SitemapLink = {
   priority: number;
 }
 
-const getURL = (page: Page, path: string = '') => {
+const getURL = (page: Page) => {
   return {
     url: `${process.env.NODE_ENV === "production" ? process.env.VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL : "http://localhost:3000"}/${page.slug?.current || ""}`,
     lastModified: page._updatedAt || page.date,
@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<SitemapLink[]> {
   const content = await client.fetch(queries.sitemap.links);
   Object.keys(content).forEach((key) => {
     content[key].forEach((page: Page) => {
-      links.push(getURL(page, key));
+      links.push(getURL(page));
     });
   });
   return links;
