@@ -33,7 +33,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
   const { body, buttonText } = props.value
   return (
     <div className={cn(
-      'flex flex-col gap-[var(--block-padding)] items-center justify-center md:justify-between text-center',
+      'flex flex-col gap-[var(--block-padding)] items-center justify-center md:justify-between text-center prose-h2:text-center',
     )}>
       <div className='portable-text-block w-full text-center'>
         {body && (

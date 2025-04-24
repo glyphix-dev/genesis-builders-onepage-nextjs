@@ -24,18 +24,26 @@ const ThemeClasses = {
   HOME: cn(
     "prose prose-spacing-normal max-w-none",
     "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-center prose-headings:sm:text-left",
-    "prose-h1:text-6xl sm:prose-h1:text-7xl",
-    "prose-h2:text-5xl md:prose-h2:text-6xl",
-    "prose-h3:text-2xl md:prose-h3:text-4xl",
-    "prose-h4:text-xl md:prose-h4:text-4xl",
-    "prose-h5:text-lg md:prose-h5:text-xl",
-    "prose-h6:text-base md:prose-h6:text-lg",
-    "prose-p:first-of-type:text-xl md:prose-p:first-of-type:text-2xl",
+    "prose-h1:text-6xl prose-h1:sm:text-7xl",
+    "prose-h2:text-4xl prose-h2:sm:text-6xl",
+    "prose-h3:text-2xl prose-h3:sm:text-4xl",
+    "prose-h4:text-xl prose-h4:sm:text-4xl",
+    "prose-h5:text-lg  prose-h5:sm:text-2xl",
+    "prose-h6:text-base prose-h6:sm:text-xl",
+    "prose-p:first-of-type:text-xl prose-p:first-of-type:xs:text-2xl prose-p:first-of-type:sm:text-2xl",
     "prose-p:text-lg prose-p:leading-normal",
     "prose-ul:list-disc prose-ul:pl-4 prose-ol:list-decimal prose-ol:pl-4 prose-li:text-lg prose-li:leading-normal prose-li:text-balance"
   ),
   FEATURES: cn(
-    "prose prose-2xl theme-features max-w-none"
+    "prose prose-2xl theme-features max-w-none",
+    "prose-headings:text-left prose-headings:sm:text-center",
+    "prose-h1:text-6xl prose-h1:sm:text-7xl prose-h1:font-serif prose-h1:text-center",
+    "prose-h2:text-4xl prose-h2:sm:text-6xl prose-h2:font-serif prose-h2:text-center",
+    "prose-h3:text-xl prose-h3:sm:text-2xl prose-h3:font-sans",
+    "prose-h4:text-xl prose-h4:sm:text-4xl prose-h4:font-sans",
+    "prose-h5:text-lg  prose-h5:sm:text-2xl prose-h5:font-sans",
+    "prose-h6:text-base prose-h6:sm:text-xl prose-h6:font-sans",
+    "prose-p:text-left prose-p:sm:text-center",
   )
 }
 

@@ -37,7 +37,9 @@ const IconFeatures: React.FunctionComponent<FeaturesBlockType> = async (props) =
 
   return props?.features && (
     <div>
-      {props.heading && <Heading text={props.heading} level={2} className='mt-0 text-center font-serif text-5xl mb-[var(--block-padding)]' />}
+      {props.heading && (
+        <Heading text={props.heading} level={2} className='mt-0 text-center font-serif mb-[var(--block-padding)]' />
+      )}
       <div className={`grid grid-cols-1 ${columns[props?.options?.columns ? props.options.columns - 1 : 2]} gap-8 md:gap-[var(--block-padding)] items-start`}>
         {props.features?.map(async (feature: Feature) => {
           const imageUrl = feature.icon ? createImageUrlBuilder(client).image(feature.icon).width(width).height(height).fit('max').dpr(2).auto('format').url() : null;
@@ -55,7 +57,7 @@ const IconFeatures: React.FunctionComponent<FeaturesBlockType> = async (props) =
                 )
               }
               <div className="text-left sm:text-center col-span-3">
-                <h3 className="tracking-tight mt-0 text-balance text-xl">{feature.title}</h3>
+                <Heading text={feature.title || ''} level={3} className='tracking-tight mt-0 text-balance text-xl' />
                 <p className="text-base">{feature.description}</p>
               </div>
             </div>
