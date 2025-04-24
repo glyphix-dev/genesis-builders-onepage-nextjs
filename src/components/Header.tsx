@@ -21,9 +21,10 @@ interface IHeaderProps {
 const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false, className, id = "header" }) => {
   const mainMenu = await client.fetch(queries.settings.mainMenu, {}, revalidate);
   const mobileMenu = await client.fetch(queries.settings.mobileMenu, {}, revalidate);
+
   const HeaderChildren = () => {
     return (<Container>
-      <div id={id} className="flex justify-between items-center relative py-4 px-8 ">
+      <div id={id} className="flex justify-between items-center relative py-4 px-8 2xl:px-0 ">
         <Logo />
         <NavBar
           className="hidden lg:flex font-bold text-primary"
