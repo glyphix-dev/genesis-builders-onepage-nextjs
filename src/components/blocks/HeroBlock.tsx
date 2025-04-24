@@ -19,7 +19,7 @@ const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) =>
       options?.bgFullWidth ? fullWidth : ""
     )} style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}>
       <div className={cn(
-        "px-6 text-center text-white prose-white prose-headings:text-center sm:prose-headings:text-center",
+        "px-8 2xl:px-0 text-center text-white prose-white prose-headings:text-center sm:prose-headings:text-center",
       )}>
         {options?.bgFullWidth ?
           (
