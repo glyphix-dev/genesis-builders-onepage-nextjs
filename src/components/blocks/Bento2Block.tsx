@@ -14,10 +14,15 @@ enum VAlign {
 }
 
 const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
-  const { left, right, heading, options } = props;
+  const { left, right, heading, options, leading } = props;
   return (
     <div className="">
-      {heading && <Heading text={heading.text || "no text"} level={heading.level || 1} className='mt-0 text-center' />}
+      {heading && <Heading text={heading.text || "no text"} level={heading.level || 1} className='heading-center mt-0 text-center ' />}
+      {leading && (
+        <div className="text-center">
+          <PortableText value={leading} components={components} />
+        </div>
+      )}
       <div
         className={cn(
           `flex items-center flex-col md:flex-row gap-[var(--block-padding)]`,

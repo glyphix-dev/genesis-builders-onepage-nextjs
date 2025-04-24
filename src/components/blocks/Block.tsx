@@ -20,7 +20,7 @@ import { cn } from '@/lib/utils';
 import Container from '@/components/Container';
 
 const ThemeClasses = {
-  DEFAULT: "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h3:tracking-tight prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
+  DEFAULT: "prose max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-h2:text-4xl prose-h3:text-2xl prose-h3:font-sans prose-h4:text-4xl prose-h5:text-xl prose-h6:text-lg",
   HOME: cn(
     "prose prose-spacing-normal max-w-none",
     "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance prose-headings:text-center prose-headings:sm:text-left",
@@ -36,7 +36,7 @@ const ThemeClasses = {
   ),
   FEATURES: cn(
     "prose prose-2xl theme-features max-w-none",
-    "prose-headings:text-left prose-headings:sm:text-center",
+    "prose-headings:text-left prose-headings:sm:text-center prose-headings:font-normal",
     "prose-h1:text-6xl prose-h1:sm:text-7xl prose-h1:font-serif prose-h1:text-center",
     "prose-h2:text-4xl prose-h2:sm:text-6xl prose-h2:font-serif prose-h2:text-center",
     "prose-h3:text-xl prose-h3:sm:text-2xl prose-h3:font-sans",

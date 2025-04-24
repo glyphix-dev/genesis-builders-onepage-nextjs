@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Heading from '../Heading';
 import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/lib/utils';
-
+import urlBuilder from '@sanity/image-url';
 const width = 150;
 const height = 150;
 
@@ -57,7 +57,7 @@ const IconFeatures: React.FunctionComponent<FeaturesBlockType> = async (props) =
                 )
               }
               <div className="text-left sm:text-center col-span-3">
-                <Heading text={feature.title || ''} level={3} className='tracking-tight mt-0 text-balance text-xl' />
+                <Heading text={feature.title || ''} level={3} className='mt-0 text-balance text-xl' />
                 <p className="text-base">{feature.description}</p>
               </div>
             </div>
@@ -76,12 +76,12 @@ const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (pro
       {props.heading && <Heading text={props.heading} level={2} className='mt-0 text-center font-serif text-5xl mb-[var(--block-padding)]' />}
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-[var(--block-padding)] items-start`}>
         {props.features?.map(async (feature: Feature) => {
-          const imageData: SanityImageAsset | null = feature.icon?.asset ? (await client.fetch(`*[_id == "${feature.icon.asset._ref}"]`))[0] : null;
+          const imageUrl = feature.icon?.asset ? urlBuilder(client).image(feature.icon?.asset).width(1024).height(768).fit('max').dpr(2).auto('format').url() : null;
           return (
             <div
               key={uuidv4()}
               className="bg-cover bg-center min-h-96 relative"
-              style={{ backgroundImage: imageData?.url ? `url(${imageData?.url})` : "" }}
+              style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : "" }}
             >
               <div
                 className="absolute inset-0 h-96 bg-linear-to-t from-black to-transparent"
@@ -90,7 +90,7 @@ const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (pro
               <div className="absolute inset-0 content-block flex flex-col gap-2 h-96 text-white p-4">
                 <div className="basis-2/3 mix-blend-normal">&nbsp;</div>
                 <div className="basis-1/3 mix-blend-normal">
-                  <h3 className="text-center tracking-tighter mt-0 text-balance text-xl text-white">{feature.title}</h3>
+                  <h3 className="text-center mt-0 text-balance text-xl text-white">{feature.title}</h3>
                   <p className="text-center text-base">{feature.description}</p>
                 </div>
               </div>

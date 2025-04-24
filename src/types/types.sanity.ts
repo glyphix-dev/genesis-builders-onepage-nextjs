@@ -473,6 +473,29 @@ export type Bento2Block = {
     text?: string
     level?: 1 | 2 | 3 | 4 | 5 | 6
   }
+  leading?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | ({
+      _key: string
+    } & AdvancedImage)
+  >
   left?: Array<
     | {
       children?: Array<{
@@ -1036,4 +1059,41 @@ export type Slug = {
   current?: string
   source?: string
 }
+
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityFileAsset
+  | Geopoint
+  | TwoColumnListBlock
+  | AdvancedImage
+  | CallToActionBlock
+  | StatsBlock
+  | LogoParadeBlock
+  | HeroBlock
+  | TestimonialBlock
+  | GalleryBlock
+  | SlideshowBlock
+  | Bento2Block
+  | FeaturesBlock
+  | YoutubeBlock
+  | ContentBlock
+  | CarouselBlock
+  | TextSize
+  | Settings
+  | BasicBlockContent
+  | BlockContent
+  | LandingPageContent
+  | Page
+  | Home
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
+  | SanityAssetSourceData
+  | SanityImageMetadata
+  | Tags
+  | Tag
+  | MediaTag
+  | Slug
 export declare const internalGroqTypeReferenceTo: unique symbol

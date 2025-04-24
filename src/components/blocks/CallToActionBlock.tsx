@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-import { ContactForm } from '../ContactForm';
+import { ContactFormExternal } from '../ContactFormExternal';
 import { PortableText } from '@portabletext/react';
 import { components } from './index';
 import { cn } from '@/lib/utils';
@@ -53,7 +53,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
                   Tell us a bit about yourself so we can get started on rebuilding your home.
                 </DialogDescription>
               </DialogHeader>
-              <ContactForm />
+              <ContactFormExternal />
             </DialogContent>
           </Dialog>
         </div>
@@ -77,7 +77,7 @@ const FormLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => 
       </div>
       <div className='w-full flex justify-center items-center'>
         <div className='w-full not-prose'>
-          <ContactForm buttonText={buttonText} />
+          <ContactFormExternal />
         </div>
       </div>
     </div>

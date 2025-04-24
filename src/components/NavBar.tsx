@@ -12,12 +12,13 @@ import Link from 'next/link';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button';
-import { ContactForm } from '@/components/ContactForm';
+import { ContactFormExternal } from '@/components/ContactFormExternal';
 import { v4 as uuidv4 } from 'uuid';
 
 interface INavBarProps {
@@ -36,8 +37,8 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
       <NavigationMenuList className="relative gap-4">
         {menu?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={uuidv4()} className="">
-            <Link href={item.url} legacyBehavior passHref scroll={true}>
-              <NavigationMenuLink className={cn(linkClassName)}>
+            <Link href={item.url} legacyBehavior passHref scroll={true} className="font-bold text-xl">
+              <NavigationMenuLink className={cn(linkClassName, "text-xl")}>
                 {item.label}
               </NavigationMenuLink>
             </Link>
@@ -46,17 +47,16 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
         <NavigationMenuItem>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="default" size="lg">Get Started!</Button>
+              <Button variant="default" size="lg">Get Started</Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Get Started!</DialogTitle>
-                {/* <DialogDescription>
-                  This action cannot be undone. This will permanently delete your account
-                  and remove your data from our servers.
-                </DialogDescription> */}
+                <DialogTitle>Take the First Step</DialogTitle>
+                <DialogDescription>
+                  Tell us a bit about your needs so we can get started on rebuilding your home.
+                </DialogDescription>
               </DialogHeader>
-              <ContactForm />
+              <ContactFormExternal className="w-[512px] -m-10" />
             </DialogContent>
           </Dialog>
         </NavigationMenuItem>

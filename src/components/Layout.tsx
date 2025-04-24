@@ -12,7 +12,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children, hasStickyHead
   return (
     <>
       <Header isSticky={hasStickyHeader} />
-      <div className="flex flex-col min-h-screen relative px-8  pb-[var(--layout-spacing)] overflow-x-hidden">
+      <div className="flex flex-col min-h-screen relative px-8  pb-[var(--layout-spacing)] overflow-hidden">
         <div className={cn("relative animate-fade-in", hasStickyHeader ? "" : "")}>
           {children}
         </div>

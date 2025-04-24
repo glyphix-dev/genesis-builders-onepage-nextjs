@@ -61,13 +61,13 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
 
-  --primary: oklch(0.52 0.098 228.14);
+  --primary: oklch(0.51 0.1473 245.12);
   --primary-foreground: oklch(100% 0 0);
 
-  --secondary: oklch(0.66 0.177274 130.2308);
-  --secondary-foreground: oklch(0% 0 0);
+  --secondary: oklch(0.57 0.0664 137.05);
+  --secondary-foreground: oklch(100% 0 0);
 
-  --muted: oklch(0.93 0.0347 88.78);
+  --muted: oklch(0.95 0.0243 77.46);
   --muted-foreground: oklch(0.4 0.0183 119.63);
 
   --accent: oklch(0.97 0 0);
@@ -189,5 +189,9 @@
 
   p:empty {
     display: none !important;
+  }
+
+  .heading-center {
+    text-align: center !important;
   }
 }
