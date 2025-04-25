@@ -11,7 +11,6 @@ const StickyHeader: React.FunctionComponent<IStickyHeaderProps> = ({ children, c
   const [isSticky, setIsSticky] = React.useState(false);
   React.useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
       if (window.scrollY > 5) {
         setIsSticky(true);
       } else {

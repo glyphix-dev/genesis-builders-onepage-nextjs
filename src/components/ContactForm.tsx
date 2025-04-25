@@ -74,7 +74,6 @@ export function ContactForm({ buttonText }: { buttonText?: string }) {
   })
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log('submit', data)
     setLoading(true);
     const { data: response } = await tryCatch(
       fetch("/api/contact", {

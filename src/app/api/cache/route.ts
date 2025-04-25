@@ -8,7 +8,6 @@ export async function POST(req: Request) {
   const paths = CACHE_PATHS[post._type as QueryTypes];
   const dependencies = CACHE_DEPENDENCIES[post._type as QueryTypes];
 
-  console.log({ post, group, paths, dependencies });
   // Revalidate tags
   if (post?.slug?.current) {
     revalidateTag(post.slug.current)
