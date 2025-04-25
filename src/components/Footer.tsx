@@ -5,6 +5,7 @@ import { client } from '@/sanity/lib/client';
 import queries, { getRevalidation, QueryTypes } from '@/sanity/queries';
 import Logo from './Logo';
 import Link from 'next/link';
+import { Button } from './ui/button';
 
 interface IFooterProps {
   showLogo?: boolean;
@@ -29,6 +30,11 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
             </p>
           </div>
           <nav className="flex items-center gap-4">
+            <Button size="lg" className="font-bolder text-2xl">
+              <Link href="/#contact">
+                {'Get Started'}
+              </Link>
+            </Button>
             {menu?.map((item: { _key: string, label: string, url: string }) => (
               <Link key={item._key} href={item.url} className="text-sm text-primary underline">
                 {item.label}
