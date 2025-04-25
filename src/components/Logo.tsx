@@ -22,7 +22,7 @@ const Logo: React.FunctionComponent<ILogoProps> = async ({ className }) => {
           <Image
             {...logo}
             src={urlBuilder(client).image(logo).width(200).dpr(2).auto('format').url()}
-            alt={logo.alt || ""}
+            alt={logo.alt || "Genesis Builders"}
             className="w-24 lg:w-44 xl:w-[267px] h-auto overflow-hidden"
             width={200}
             height={200}
