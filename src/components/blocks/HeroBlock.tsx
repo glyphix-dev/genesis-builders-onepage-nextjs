@@ -24,7 +24,7 @@ const HeroBlock: React.FunctionComponent<IHeroBlockProps> = async ({ value }) =>
       // "xl:bg-[url('https://cdn.sanity.io/images/qxyqen3g/development/d9a69d2efc57289b8480a8d19b7605c34ad7f7d9-2000x1335.jpg?rect=0,106,2000,1125&w=1920&h=1080&auto=format&dpr=2')]",
       options?.bgFullWidth ? fullWidth : ""
     )}>
-      <Image src={imageUrl || ""} alt="Hero Image" fill className="mix-blend-multiply object-cover absolute top-0 left-0 not-prose" />
+      <Image src={imageUrl || ""} alt="Hero Image" fill className="mix-blend-multiply object-cover absolute top-0 left-0 not-prose" priority />
       <div className={cn(
         "py-12 px-8 2xl:px-0 text-center text-white prose-white prose-headings:text-center sm:prose-headings:text-center",
       )}>

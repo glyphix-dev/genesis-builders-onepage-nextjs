@@ -1,18 +1,10 @@
 import * as React from 'react';
 import { CallToActionBlock as CallToActionBlockType } from '@/types/types.sanity';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-
 import { ContactFormExternal } from '../ContactFormExternal';
 import { PortableText } from '@portabletext/react';
 import { components } from './index';
 import { cn } from '@/lib/utils';
+import { ContactFormDialogExternal } from '../ContactFormDialogExternal';
 
 interface ICallToActionBlockProps {
   value: CallToActionBlockType
@@ -42,20 +34,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
       </div>
       <div className='w-full flex justify-center items-center'>
         <div className='not-prose flex justify-center items-center'>
-          <Dialog>
-            <DialogTrigger>
-              <span className='bg-primary text-primary-foreground font-bold text-2xl px-4 py-2 rounded-md'>{buttonText}</span>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>{buttonText}</DialogTitle>
-                <DialogDescription>
-                  Tell us a bit about yourself so we can get started on rebuilding your home.
-                </DialogDescription>
-              </DialogHeader>
-              <ContactFormExternal />
-            </DialogContent>
-          </Dialog>
+          <ContactFormDialogExternal />
         </div>
       </div>
     </div>
