@@ -75,6 +75,6 @@ export const CACHE_DEPENDENCIES: Record<QueryTypes, string[]> = {
   [QueryTypes.Pages]: [],
   [QueryTypes.Posts]: [],
   [QueryTypes.Search]: [],
-  [QueryTypes.Settings]: ["pages", "posts"],
+  [QueryTypes.Settings]: ["home", "pages", "posts"],
   [QueryTypes.Sitemap]: ["pages", "posts"],
 }
