@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HeroBlock as HeroBlockType, BlockContent } from '@/types/types.sanity';
-import { cn, getImageData } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { components } from '../blocks';
 import { PortableText } from '@portabletext/react';
 import Container from '../Container';
