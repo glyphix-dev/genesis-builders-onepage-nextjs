@@ -19,10 +19,13 @@ import { Button } from '@/components/ui/button';
 
 interface IMobileMenuProps {
   menu: {
-    _key: string;
-    label: string;
-    url: string;
-  }[];
+    showCTA?: boolean;
+    nav?: {
+      _key: string;
+      label: string;
+      url: string;
+    }[];
+  };
   children?: React.ReactNode;
   className?: string;
 }
@@ -40,20 +43,22 @@ const MobileMenu: React.FunctionComponent<IMobileMenuProps> = ({ children, menu,
             {children}
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {menu?.map((item: { _key: string, label: string, url: string }) => (
+          {menu?.nav?.map((item: { _key: string, label: string, url: string }) => (
             <DropdownMenuItem key={uuidv4()}>
               <Link href={item.url} className="text-lg my-1">
                 {item.label}
               </Link>
             </DropdownMenuItem>
           ))}
-          <div className="mt-4 w-full">
-            <Button size="lg" className="font-bolder text-2xl">
-              <Link href="/#contact">
-                {'Get Started'}
-              </Link>
-            </Button>
-          </div>
+          {menu?.showCTA && (
+            <div className="mt-4 w-full">
+              <Button size="lg" className="font-bolder text-2xl">
+                <Link href="/#contact">
+                  {'Get Started'}
+                </Link>
+              </Button>
+            </div>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

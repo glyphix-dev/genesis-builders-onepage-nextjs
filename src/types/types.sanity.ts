@@ -707,6 +707,7 @@ export type Settings = {
     _type: 'image'
   }
   navigation?: {
+    showCTA?: boolean
     desktop?: Array<{
       label?: string
       url?: string

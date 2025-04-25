@@ -16,7 +16,13 @@ export default {
     "title": *[_type == "settings"][0].siteTitle
   }
       `,
-  mainMenu: `*[_type == "settings"][0].navigation.desktop`,
-  mobileMenu: `*[_type == "settings"][0].navigation.mobile`,
+  mainMenu: `*[_type == "settings"][0]{
+    "nav": navigation.desktop,
+    "showCTA": navigation.showCTA
+  }`,
+  mobileMenu: `*[_type == "settings"][0]{
+    "nav": navigation.mobile,
+    "showCTA": navigation.showCTA
+  }`,
   footerMenu: `*[_type == "settings"][0].navigation.footer`,
 } as const satisfies SanityNextQueries

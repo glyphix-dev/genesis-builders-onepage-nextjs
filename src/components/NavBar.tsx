@@ -14,10 +14,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button } from './ui/button';
 interface INavBarProps {
   menu: {
-    _key: string;
-    label: string;
-    url: string;
-  }[];
+    showCTA?: boolean;
+    nav?: {
+      _key: string;
+      label: string;
+      url: string;
+    }[];
+  };
   className?: string;
   linkClassName?: string;
 }
@@ -26,7 +29,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
   return (
     <NavigationMenu className={cn("relative items-center", className)}>
       <NavigationMenuList className="relative gap-1 xl:gap-4">
-        {menu?.map((item: { _key: string, label: string, url: string }) => (
+        {menu?.nav?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={uuidv4()} className="">
             <Link href={item.url} legacyBehavior passHref scroll={true} className="font-bolder">
               <NavigationMenuLink className={cn(linkClassName, "text-center text-lg xl:text-xl")}>
@@ -35,14 +38,16 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
             </Link>
           </NavigationMenuItem>
         ))}
-        <NavigationMenuItem>
-          {/* <ContactFormDialogExternal /> */}
-          <Button size="lg" className="font-bolder text-2xl">
-            <Link href="/#contact">
-              {'Get Started'}
-            </Link>
-          </Button>
-        </NavigationMenuItem>
+        {menu?.showCTA && (
+          <NavigationMenuItem>
+            {/* <ContactFormDialogExternal /> */}
+            <Button size="lg" className="font-bolder text-2xl">
+              <Link href="/#contact">
+                {'Get Started'}
+              </Link>
+            </Button>
+          </NavigationMenuItem>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );
