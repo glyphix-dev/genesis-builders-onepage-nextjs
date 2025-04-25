@@ -24,7 +24,7 @@ const Header: React.FunctionComponent<IHeaderProps> = async ({ isSticky = false,
 
   const HeaderChildren = () => {
     return (<Container>
-      <div id={id} className="flex justify-between items-center relative py-12 px-8 2xl:px-0 ">
+      <div id={id} className="flex justify-between items-center relative py-8 lg:py-12 px-8 2xl:px-0 ">
         <Logo />
         <NavBar
           className="hidden lg:flex font-bold text-primary"
