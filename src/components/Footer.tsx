@@ -21,7 +21,7 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
   return (
     <footer className={cn("w-full bg-secondary text-secondary-foreground py-3 px-8 ", className)}>
       <Container>
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-4">
           <div className="flex gap-2 items-center">
             {showLogo && <Logo />}
             <p>
