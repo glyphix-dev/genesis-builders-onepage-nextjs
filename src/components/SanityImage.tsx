@@ -33,6 +33,8 @@ const SanityImage: React.FunctionComponent<ISanityImageProps> = async (props) =>
       height={props.height || imageData?.metadata?.dimensions?.height || 600}
       className={cn(props.className || 'mx-auto mb-12')}
       priority={props.priority || false}
+      blurDataURL={imageData?.metadata?.lqip}
+      placeholder="blur"
     />);
 };
 

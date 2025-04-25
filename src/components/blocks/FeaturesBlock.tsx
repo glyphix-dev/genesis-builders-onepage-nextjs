@@ -76,16 +76,17 @@ const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (pro
       {props.heading && <Heading text={props.heading} level={2} className='mt-0 text-center font-serif text-5xl mb-[var(--block-padding)]' />}
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-[var(--block-padding)] items-start`}>
         {props.features?.map(async (feature: Feature) => {
-          const imageUrl = feature.icon?.asset ? urlBuilder(client).image(feature.icon?.asset).width(1024).height(768).fit('max').dpr(2).auto('format').url() : null;
+          const imageUrl = feature.icon?.asset ? urlBuilder(client).image(feature.icon?.asset).width(576).height(352).fit('max').dpr(2).auto('format').url() : null;
           return (
             <div
               key={uuidv4()}
               className="bg-cover bg-center min-h-96 relative"
-              style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : "" }}
+            // style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : "" }}
             >
               <div
                 className="absolute inset-0 h-96 bg-linear-to-t from-black to-transparent"
               >
+                <Image src={imageUrl || ''} alt={feature.title || ''} width={576} height={352} className="w-full h-full object-cover mix-blend-multiply not-prose" />
               </div>
               <div className="absolute inset-0 content-block flex flex-col gap-2 h-96 text-white p-4">
                 <div className="basis-2/3 mix-blend-normal">&nbsp;</div>
