@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/navigation-menu"
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
-import { ContactFormDialogExternal } from './ContactFormDialogExternal';
+// import { ContactFormDialogExternal } from './ContactFormDialogExternal';
+import { Button } from './ui/button';
 interface INavBarProps {
   menu: {
     _key: string;
@@ -35,7 +36,12 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
           </NavigationMenuItem>
         ))}
         <NavigationMenuItem>
-          <ContactFormDialogExternal />
+          {/* <ContactFormDialogExternal /> */}
+          <Button size="lg" className="font-bolder text-2xl">
+            <Link href="/#contact">
+              {'Get Started'}
+            </Link>
+          </Button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

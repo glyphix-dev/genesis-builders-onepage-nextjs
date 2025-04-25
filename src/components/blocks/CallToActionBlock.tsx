@@ -4,7 +4,9 @@ import { ContactFormExternal } from '../ContactFormExternal';
 import { PortableText } from '@portabletext/react';
 import { components } from './index';
 import { cn } from '@/lib/utils';
-import { ContactFormDialogExternal } from '../ContactFormDialogExternal';
+// import { ContactFormDialogExternal } from '../ContactFormDialogExternal';
+import { Button } from '../ui/button';
+import Link from 'next/link';
 
 interface ICallToActionBlockProps {
   value: CallToActionBlockType
@@ -22,7 +24,7 @@ const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (pro
 export default CallToActionBlock;
 
 const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
-  const { body } = props.value
+  const { body, options } = props.value
   return (
     <div className={cn(
       'flex flex-col gap-[var(--block-padding)] items-center justify-center md:justify-between text-center prose-h2:text-center',
@@ -34,7 +36,12 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
       </div>
       <div className='w-full flex justify-center items-center'>
         <div className='not-prose flex justify-center items-center'>
-          <ContactFormDialogExternal />
+          {/* <ContactFormDialogExternal /> */}
+          <Button size="lg" className="font-bolder text-2xl">
+            <Link href="/#contact">
+              {'Get Started'}
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
