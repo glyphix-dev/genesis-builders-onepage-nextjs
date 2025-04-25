@@ -22,7 +22,7 @@ const CallToActionBlock: React.FunctionComponent<ICallToActionBlockProps> = (pro
 export default CallToActionBlock;
 
 const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) => {
-  const { body, buttonText } = props.value
+  const { body } = props.value
   return (
     <div className={cn(
       'flex flex-col gap-[var(--block-padding)] items-center justify-center md:justify-between text-center prose-h2:text-center',

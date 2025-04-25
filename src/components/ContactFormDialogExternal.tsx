@@ -11,11 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ContactFormExternal } from '@/components/ContactFormExternal';
 
-interface IContactFormExternalProps {
-  className?: string;
-}
-
-export function ContactFormDialogExternal({ className }: IContactFormExternalProps) {
+export function ContactFormDialogExternal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
