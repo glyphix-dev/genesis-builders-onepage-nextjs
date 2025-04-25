@@ -20,7 +20,12 @@ const getURL = (page: Page) => {
 
 export default async function sitemap(): Promise<SitemapLink[]> {
   const links: SitemapLink[] = [];
-  const content = await client.fetch(queries.sitemap.links);
+  const content = await client.fetch(queries.sitemap.links, {}, {
+    next: {
+      tags: ['sitemap'],
+      revalidate: 60 * 60 * 24, // 24 hours
+    }
+  });
   Object.keys(content).forEach((key) => {
     content[key].forEach((page: Page) => {
       links.push(getURL(page));

@@ -55,7 +55,7 @@ export const CACHE_PATHS: Record<QueryTypes, string[]> = {
   [QueryTypes.Posts]: ['/map', '/blog'],
   [QueryTypes.Search]: ['/search'],
   [QueryTypes.Settings]: [],
-  [QueryTypes.Sitemap]: ['/map'],
+  [QueryTypes.Sitemap]: ['/map', '/sitemap.xml'],
 }
 
 // The groups of queries to revalidate when the query is updated.
@@ -71,10 +71,10 @@ export const CACHE_GROUPS: Record<QueryTypes, string> = {
 // The dependencies of the query to revalidate when the query is updated.
 // Example: If a post is updated, the home page and sitemap will need to be revalidated.
 export const CACHE_DEPENDENCIES: Record<QueryTypes, string[]> = {
-  [QueryTypes.Home]: ['posts'],
-  [QueryTypes.Pages]: [],
-  [QueryTypes.Posts]: [],
-  [QueryTypes.Search]: [],
-  [QueryTypes.Settings]: ["home", "pages", "posts"],
-  [QueryTypes.Sitemap]: ["pages", "posts"],
+  [QueryTypes.Home]: ['posts', 'sitemap'],
+  [QueryTypes.Pages]: ['sitemap'],
+  [QueryTypes.Posts]: ['sitemap'],
+  [QueryTypes.Search]: ['sitemap'],
+  [QueryTypes.Settings]: ["home", "pages", "posts", "sitemap"],
+  [QueryTypes.Sitemap]: ["pages", "posts", "sitemap"],
 }
