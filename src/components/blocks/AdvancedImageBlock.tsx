@@ -31,6 +31,7 @@ export const AdvancedImageBlock: React.FunctionComponent<IImageBlockProps> = asy
   if (!image?.asset?._ref) return null;
 
   const transformedImage: ISanityImageProps['image'] = {
+    _type: "image",
     asset: {
       _ref: image.asset._ref,
       _type: 'reference',
