@@ -32,7 +32,7 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
           <nav className="flex items-center gap-4">
             <Button size="lg" className="font-bolder text-2xl">
               <Link href="/#contact">
-                {'Get Started'}
+                {'Stay Informed'}
               </Link>
             </Button>
             {menu?.map((item: { _key: string, label: string, url: string }) => (

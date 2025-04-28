@@ -39,7 +39,7 @@ const DefaultLayout: React.FunctionComponent<ICallToActionBlockProps> = (props) 
           {/* <ContactFormDialogExternal /> */}
           <Button size="lg" className="font-bolder text-2xl">
             <Link href="/#contact">
-              {'Get Started'}
+              {'Stay Informed'}
             </Link>
           </Button>
         </div>

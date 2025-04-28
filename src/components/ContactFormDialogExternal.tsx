@@ -15,7 +15,7 @@ export function ContactFormDialogExternal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default" size="lg" className="font-bolder text-2xl">Get Started</Button>
+        <Button variant="default" size="lg" className="font-bolder text-2xl">Stay Informed</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

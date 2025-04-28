@@ -54,7 +54,7 @@ const MobileMenu: React.FunctionComponent<IMobileMenuProps> = ({ children, menu,
             <div className="mt-4 w-full">
               <Button size="lg" className="font-bolder text-2xl">
                 <Link href="/#contact">
-                  {'Get Started'}
+                  {'Stay Informed'}
                 </Link>
               </Button>
             </div>

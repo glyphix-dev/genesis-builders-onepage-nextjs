@@ -43,7 +43,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
             {/* <ContactFormDialogExternal /> */}
             <Button size="lg" className="font-bolder text-2xl">
               <Link href="/#contact">
-                {'Get Started'}
+                {'Stay Informed'}
               </Link>
             </Button>
           </NavigationMenuItem>
