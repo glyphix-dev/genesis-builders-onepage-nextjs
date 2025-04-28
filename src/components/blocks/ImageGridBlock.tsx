@@ -13,7 +13,6 @@ const ImageGrid: React.FunctionComponent<IImageGridProps> = (props) => {
     <div className="grid grid-cols-2 gap-4 bg-transparent">
       {images.map((imageRef) => {
         const { image, options } = imageRef;
-        console.log({ image, options });
         return image?.asset && (
           <div key={imageRef._key}>
             <SanityImage image={image} width={options?.width} height={options?.height} />
