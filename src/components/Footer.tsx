@@ -25,8 +25,8 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
           <div className="flex gap-2 items-center">
             {showLogo && <Logo />}
             <p>
-              ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved.
-              {/* <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link> */}
+              ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved.<br />
+              <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link>
             </p>
           </div>
           <nav className="flex items-center gap-4">
