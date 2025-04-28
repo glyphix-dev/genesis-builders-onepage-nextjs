@@ -13,6 +13,7 @@ import type {
   StatsBlock as StatsBlockType,
   TestimonialBlock as TestimonialBlockType,
   TwoColumnListBlock as TwoColumnListBlockType,
+  ImageGridBlock as ImageGridBlockType,
 } from "@/types/types.sanity";
 
 import type { IImageBlockProps } from "./ImageBlock";
@@ -32,7 +33,7 @@ import StatsBlock from "./StatsBlock";
 import { AdvancedImageBlock } from "./AdvancedImageBlock";
 import Block from "./Block";
 import TwoColumnList from "./TwoColumnList";
-
+import ImageGridBlock from "./ImageGridBlock";
 export const components = {
   types: {
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
@@ -91,6 +92,13 @@ export const components = {
       return (
         <Block options={value?.options} type="hero">
           <HeroBlock value={value} />
+        </Block>
+      );
+    },
+    imageGridBlock: ({ value }: { value: ImageGridBlockType }) => {
+      return (
+        <Block type="imageGrid">
+          <ImageGridBlock value={value} />
         </Block>
       );
     },

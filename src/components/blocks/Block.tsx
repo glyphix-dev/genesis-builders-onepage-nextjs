@@ -14,7 +14,7 @@ import type {
   CallToActionBlock as CallToActionBlockType,
   LogoParadeBlock as LogoParadeBlockType,
   StatsBlock as StatsBlockType,
-  TestimonialBlock
+  TestimonialBlock as TestimonialBlockType,
 } from "@/types/types.sanity";
 import { cn } from '@/lib/utils';
 import Container from '@/components/Container';
@@ -49,7 +49,7 @@ const ThemeClasses = {
 }
 
 enum BlockThemes {
-  DEFAULT = "bg-background text-foreground",
+  DEFAULT = "bg-transparent text-foreground",
   PRIMARY = "bg-primary text-primary-foreground prose-headings:text-primary-foreground prose-p:text-primary-foreground p-block",
   SECONDARY = "bg-secondary text-secondary-foreground prose-headings:text-secondary-foreground prose-p:text-secondary-foreground p-block",
   MUTED = "bg-muted text-muted-foreground prose-headings:text-muted-foreground prose-p:text-muted-foreground p-block",
@@ -57,10 +57,10 @@ enum BlockThemes {
 }
 
 interface IBlockProps {
-  type?: 'advancedImage' | 'hero' | 'content' | 'carousel' | 'slideshow' | 'bento2' | 'gallery' | 'testimonial' | 'logoParade' | 'stats' | 'callToAction' | 'youtube' | 'twoColumnList' | 'features'
+  type?: 'advancedImage' | 'hero' | 'content' | 'carousel' | 'slideshow' | 'bento2' | 'gallery' | 'testimonial' | 'logoParade' | 'stats' | 'callToAction' | 'youtube' | 'twoColumnList' | 'features' | 'imageGrid'
   children?: React.ReactNode
   className?: string
-  options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlock['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options']
+  options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlockType['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options'] | null
 }
 
 const Block: React.FunctionComponent<IBlockProps> = ({ children, className, options, type }) => {

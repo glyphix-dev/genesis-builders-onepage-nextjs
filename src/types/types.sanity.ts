@@ -68,6 +68,38 @@ export type Geopoint = {
   alt?: number
 }
 
+export type ImageGridBlock = {
+  _type: 'imageGridBlock'
+  images?: Array<{
+    image?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    metadata?: {
+      alt?: string
+      title?: string
+      caption?: string
+      credit?: string
+    }
+    options?: {
+      width?: number
+      height?: number
+      circle?: boolean
+      figure?: boolean
+      className?: string
+    }
+    _key: string
+  }>
+}
+
 export type TwoColumnListBlock = {
   _type: 'twoColumnListBlock'
   heading?: {
@@ -98,6 +130,9 @@ export type TwoColumnListBlock = {
       | ({
         _key: string
       } & AdvancedImage)
+      | ({
+        _key: string
+      } & ImageGridBlock)
     >
     _key: string
   }>
@@ -125,6 +160,9 @@ export type TwoColumnListBlock = {
       | ({
         _key: string
       } & AdvancedImage)
+      | ({
+        _key: string
+      } & ImageGridBlock)
     >
     _key: string
   }>
@@ -231,6 +269,9 @@ export type CallToActionBlock = {
     | ({
       _key: string
     } & TwoColumnListBlock)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
@@ -355,6 +396,9 @@ export type HeroBlock = {
     | ({
       _key: string
     } & TwoColumnListBlock)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   image?: {
     asset?: {
@@ -495,6 +539,9 @@ export type Bento2Block = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   left?: Array<
     | {
@@ -518,6 +565,9 @@ export type Bento2Block = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   right?: Array<
     | {
@@ -541,6 +591,9 @@ export type Bento2Block = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   options?: {
     id?: string
@@ -617,6 +670,9 @@ export type ContentBlock = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & ImageGridBlock)
   >
   align?: 'start' | 'center' | 'end'
   options?: {
@@ -668,6 +724,9 @@ export type CarouselBlock = {
       | ({
         _key: string
       } & AdvancedImage)
+      | ({
+        _key: string
+      } & ImageGridBlock)
     >
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     _key: string
@@ -812,6 +871,9 @@ export type BasicBlockContent = Array<
   | ({
     _key: string
   } & AdvancedImage)
+  | ({
+    _key: string
+  } & ImageGridBlock)
 >
 
 export type BlockContent = Array<
@@ -875,6 +937,9 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & TwoColumnListBlock)
+  | ({
+    _key: string
+  } & ImageGridBlock)
 >
 
 export type LandingPageContent = Array<
@@ -920,6 +985,9 @@ export type LandingPageContent = Array<
   | ({
     _key: string
   } & TwoColumnListBlock)
+  | ({
+    _key: string
+  } & ImageGridBlock)
 >
 
 export type Page = {
@@ -1067,6 +1135,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | ImageGridBlock
   | TwoColumnListBlock
   | AdvancedImage
   | CallToActionBlock

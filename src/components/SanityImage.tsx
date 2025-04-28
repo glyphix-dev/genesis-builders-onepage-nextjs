@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { } from '@/types/types.sanity';
+import { internalGroqTypeReferenceTo, SanityImageCrop, SanityImageHotspot } from '@/types/types.sanity';
 import Image from 'next/image';
 import urlBuilder from '@sanity/image-url';
 import { client } from '@/sanity/lib/client';
@@ -8,12 +8,17 @@ import { CustomImageFields } from '@/types/types.custom';
 
 export interface ISanityImageProps extends CustomImageFields {
   image: {
-    asset: {
-      _ref: string,
-      _type: 'reference',
-      _weak: boolean
-    },
-  };
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  }
   width?: number;
   height?: number;
   className?: string;
