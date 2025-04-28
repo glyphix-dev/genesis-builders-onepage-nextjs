@@ -24,7 +24,7 @@ export function ContactFormDialogExternal() {
             Tell us a bit about your needs so we can get started on rebuilding your home.
           </DialogDescription>
         </DialogHeader>
-        <ContactFormExternal className="w-[512px] -m-10" />
+        <ContactFormExternal />
       </DialogContent>
     </Dialog>
   )
