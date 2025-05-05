@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const cspHeader = `
-    frame-src 'self' https://share-na2.hsforms.com https://*.hsforms.com;
-    frame-ancestors 'self' https://share-na2.hsforms.com https://*.hsforms.com;
+    frame-src 'self' share-na2.hsforms.com;
+    frame-ancestors 'self' share-na2.hsforms.com;
     upgrade-insecure-requests;
 `;
 
