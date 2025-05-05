@@ -7,7 +7,6 @@ import imageUrlBuilder from '@sanity/image-url';
 import Heading from '../Heading';
 import { components } from '.';
 import { cn } from '@/lib/utils';
-import { m } from 'motion/react';
 
 interface IAdvancedListBlockProps extends AdvancedListBlockType {
   listItems?: AdvancedListBlockType['listItems'];
