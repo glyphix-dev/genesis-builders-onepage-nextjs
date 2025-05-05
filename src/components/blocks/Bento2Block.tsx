@@ -17,7 +17,7 @@ const Bento2Block: React.FunctionComponent<Bento2Block> = async (props) => {
   const { left, right, heading, options, leading } = props;
   return (
     <div className="">
-      {heading && <Heading text={heading.text || "no text"} level={heading.level || 1} className='heading-center mt-0 text-center ' />}
+      {heading?.text && <Heading text={heading.text || "no text"} level={heading.level || 1} className='heading-center mt-0 text-center ' />}
       {leading && (
         <div className="text-center">
           <PortableText value={leading} components={components} />

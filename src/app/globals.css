@@ -214,6 +214,7 @@
   .prose ol {
     counter-reset: count 0;
     padding-left: 0 !important;
+    list-style-type: none !important;
     > li {
       counter-increment: count 1;
       position: relative;

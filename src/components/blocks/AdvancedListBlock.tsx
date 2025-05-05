@@ -21,7 +21,7 @@ const AdvancedListBlock: React.FunctionComponent<IAdvancedListBlockProps> = (pro
   const ListItems = listItems?.map((item) => {
     const builder = imageUrlBuilder(client);
     return (
-      <li key={item._key} className={`${options?.type === 'bullet' ? 'flex items-center gap-2 text-2xl pb-4' : 'content-block'}`}>
+      <li key={item._key} className={`${options?.type === 'bullet' ? 'flex items-start gap-2 text-2xl pb-4' : 'content-block'}`}>
         {item.image && (
           <Image src={builder.image(item.image).width(30).height(30).fit('max').url()} alt={""} width={30} height={30} />
         )}
