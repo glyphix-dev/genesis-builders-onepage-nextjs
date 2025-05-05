@@ -5,6 +5,7 @@ import { motion } from "motion/react"
 
 import type {
   AdvancedImage as AdvancedImageBlockType,
+  AdvancedListBlock as AdvancedListBlockType,
   ContentBlock as ContentBlockType,
   HeroBlock as HeroBlockType,
   CarouselBlock as CarouselBlockType,
@@ -24,7 +25,7 @@ const ThemeClasses = {
   HOME: cn(
     "prose prose-spacing-normal max-w-none",
     "prose-headings:font-serif prose-headings:font-normal prose-headings:text-balance",
-    "prose-headings:text-center prose-headings:sm:text-left prose-headings:mb-4",
+    "prose-headings:text-center prose-headings:sm:text-inherit prose-headings:mb-4",
     "prose-h1:text-6xl prose-h1:sm:text-7xl",
     "prose-h2:text-5xl prose-h2:sm:text-5xl",
     "prose-h3:text-2xl prose-h3:sm:text-4xl",
@@ -57,10 +58,26 @@ enum BlockThemes {
 }
 
 interface IBlockProps {
-  type?: 'advancedImage' | 'hero' | 'content' | 'carousel' | 'slideshow' | 'bento2' | 'gallery' | 'testimonial' | 'logoParade' | 'stats' | 'callToAction' | 'youtube' | 'twoColumnList' | 'features' | 'imageGrid'
+  type?:
+  'advancedImage' |
+  'advancedList' |
+  'hero' | 'content' | 'carousel' | 'slideshow' | 'bento2' | 'gallery' | 'testimonial' | 'logoParade' | 'stats' | 'callToAction' | 'youtube' | 'twoColumnList' | 'features' | 'imageGrid'
   children?: React.ReactNode
   className?: string
-  options?: AdvancedImageBlockType['options'] | HeroBlockType['options'] | ContentBlockType['options'] | CarouselBlockType['options'] | SlideshowBlockType['options'] | Bento2BlockType['options'] | GalleryBlockType['options'] | TestimonialBlockType['options'] | LogoParadeBlockType['options'] | StatsBlockType['options'] | CallToActionBlockType['options'] | null
+  options?:
+  AdvancedImageBlockType['options'] |
+  AdvancedListBlockType['options'] |
+  Bento2BlockType['options'] |
+  CallToActionBlockType['options'] |
+  CarouselBlockType['options'] |
+  ContentBlockType['options'] |
+  GalleryBlockType['options'] |
+  HeroBlockType['options'] |
+  LogoParadeBlockType['options'] |
+  SlideshowBlockType['options'] |
+  TestimonialBlockType['options'] |
+  StatsBlockType['options'] |
+  null
 }
 
 const Block: React.FunctionComponent<IBlockProps> = ({ children, className, options, type }) => {

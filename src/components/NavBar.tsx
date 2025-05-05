@@ -32,7 +32,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({ menu, className, linkCl
         {menu?.nav?.map((item: { _key: string, label: string, url: string }) => (
           <NavigationMenuItem key={uuidv4()} className="">
             <Link href={item.url} legacyBehavior passHref scroll={true} className="font-bolder">
-              <NavigationMenuLink className={cn(linkClassName, "text-center text-lg xl:text-xl")}>
+              <NavigationMenuLink className={cn(linkClassName, "text-primary text-center text-lg xl:text-xl")}>
                 {item.label}
               </NavigationMenuLink>
             </Link>

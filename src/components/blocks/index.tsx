@@ -1,5 +1,6 @@
 import type {
   AdvancedImage as AdvancedImageBlockType,
+  AdvancedListBlock as AdvancedListBlockType,
   ContentBlock as ContentBlockType,
   HeroBlock as HeroBlockType,
   CarouselBlock as CarouselBlockType,
@@ -34,11 +35,19 @@ import { AdvancedImageBlock } from "./AdvancedImageBlock";
 import Block from "./Block";
 import TwoColumnList from "./TwoColumnList";
 import ImageGridBlock from "./ImageGridBlock";
+import AdvancedListBlock from "./AdvancedListBlock";
 export const components = {
   types: {
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
       return (
         <AdvancedImageBlock {...value} />
+      );
+    },
+    advancedListBlock: ({ value }: { value: AdvancedListBlockType }) => {
+      return (
+        <Block options={value?.options} type="advancedList" className="content-block">
+          <AdvancedListBlock {...value} />
+        </Block>
       );
     },
     bento2Block: ({ value }: { value: Bento2BlockType }) => {

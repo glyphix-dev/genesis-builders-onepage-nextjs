@@ -68,6 +68,108 @@ export type Geopoint = {
   alt?: number
 }
 
+export type AdvancedListBlock = {
+  _type: 'advancedListBlock'
+  heading?: {
+    text?: string
+    level?: 2 | 3 | 4 | 5
+  }
+  listItems?: Array<{
+    image?: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    }
+    body?: Array<
+      | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href?: string
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+      | ({
+        _key: string
+      } & CarouselBlock)
+      | ({
+        _key: string
+      } & ContentBlock)
+      | ({
+        _key: string
+      } & YoutubeBlock)
+      | ({
+        _key: string
+      } & FeaturesBlock)
+      | ({
+        _key: string
+      } & Bento2Block)
+      | ({
+        _key: string
+      } & SlideshowBlock)
+      | ({
+        _key: string
+      } & GalleryBlock)
+      | ({
+        _key: string
+      } & TestimonialBlock)
+      | ({
+        _key: string
+      } & HeroBlock)
+      | ({
+        _key: string
+      } & LogoParadeBlock)
+      | ({
+        _key: string
+      } & StatsBlock)
+      | ({
+        _key: string
+      } & CallToActionBlock)
+      | ({
+        _key: string
+      } & AdvancedImage)
+      | ({
+        _key: string
+      } & TwoColumnListBlock)
+      | ({
+        _key: string
+      } & ImageGridBlock)
+      | ({
+        _key: string
+      } & AdvancedListBlock)
+    >
+    _type: 'listItem'
+    _key: string
+  }>
+  options?: {
+    id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
+    vAlign?: 'top' | 'center' | 'bottom'
+    type?: 'bullet' | 'number'
+  }
+}
+
 export type ImageGridBlock = {
   _type: 'imageGridBlock'
   images?: Array<{
@@ -98,6 +200,15 @@ export type ImageGridBlock = {
     }
     _key: string
   }>
+  options?: {
+    id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
+    vAlign?: 'top' | 'center' | 'bottom'
+  }
 }
 
 export type TwoColumnListBlock = {
@@ -168,12 +279,12 @@ export type TwoColumnListBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -272,17 +383,20 @@ export type CallToActionBlock = {
     | ({
       _key: string
     } & ImageGridBlock)
+    | ({
+      _key: string
+    } & AdvancedListBlock)
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
     layout?: 'default' | 'form'
   }
 }
@@ -298,12 +412,12 @@ export type StatsBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -324,12 +438,12 @@ export type LogoParadeBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -399,6 +513,9 @@ export type HeroBlock = {
     | ({
       _key: string
     } & ImageGridBlock)
+    | ({
+      _key: string
+    } & AdvancedListBlock)
   >
   image?: {
     asset?: {
@@ -414,12 +531,12 @@ export type HeroBlock = {
   }
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -445,12 +562,12 @@ export type TestimonialBlock = {
   rating?: number
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -472,12 +589,12 @@ export type GalleryBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -500,12 +617,12 @@ export type SlideshowBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
     autoplay?: boolean
     interval?: number
   }
@@ -597,12 +714,12 @@ export type Bento2Block = {
   >
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
     offset?: boolean
     reverse?: boolean
   }
@@ -630,12 +747,12 @@ export type FeaturesBlock = {
   }>
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
     columns?: number
     layout?: 'default' | 'thumbnails'
   }
@@ -677,12 +794,12 @@ export type ContentBlock = {
   align?: 'start' | 'center' | 'end'
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -734,12 +851,12 @@ export type CarouselBlock = {
   autoplay?: boolean
   options?: {
     id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
     textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
     bgFullWidth?: boolean
     vAlign?: 'top' | 'center' | 'bottom'
-    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
-    useLandingPageStyles?: boolean
   }
 }
 
@@ -940,6 +1057,9 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & ImageGridBlock)
+  | ({
+    _key: string
+  } & AdvancedListBlock)
 >
 
 export type LandingPageContent = Array<
@@ -988,6 +1108,9 @@ export type LandingPageContent = Array<
   | ({
     _key: string
   } & ImageGridBlock)
+  | ({
+    _key: string
+  } & AdvancedListBlock)
 >
 
 export type Page = {
@@ -1135,6 +1258,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | AdvancedListBlock
   | ImageGridBlock
   | TwoColumnListBlock
   | AdvancedImage
