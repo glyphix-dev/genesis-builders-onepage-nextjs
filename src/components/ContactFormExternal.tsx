@@ -9,6 +9,7 @@ export function ContactFormExternal() {
       height="600"
       className="w-full h-[960px]"
       title="Contact Form"
+      allow="forms"
     >
     </iframe>
   )
