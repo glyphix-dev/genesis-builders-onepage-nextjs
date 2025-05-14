@@ -68,6 +68,94 @@ export type Geopoint = {
   alt?: number
 }
 
+export type TabBlock = {
+  _type: 'tabBlock'
+  tabTitle?: string
+  icon?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  }
+  left?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | ({
+      _key: string
+    } & AdvancedImage)
+    | ({
+      _key: string
+    } & AdvancedListBlock)
+    | ({
+      _key: string
+    } & ImageGridBlock)
+  >
+  right?: Array<
+    | {
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+      }>
+      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
+    | ({
+      _key: string
+    } & AdvancedImage)
+    | ({
+      _key: string
+    } & AdvancedListBlock)
+    | ({
+      _key: string
+    } & ImageGridBlock)
+  >
+  theme?: 'default' | 'filled'
+  options?: {
+    id?: string
+    theme?: 'DEFAULT' | 'HOME' | 'FEATURES'
+    textAlign?: 'left' | 'center' | 'right'
+    textSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    blockTheme?: 'DEFAULT' | 'PRIMARY' | 'SECONDARY' | 'MUTED' | 'ACCENT'
+    bgFullWidth?: boolean
+    vAlign?: 'top' | 'center' | 'bottom'
+    offset?: boolean
+    reverse?: boolean
+  }
+}
+
 export type AdvancedListBlock = {
   _type: 'advancedListBlock'
   heading?: {
@@ -154,6 +242,9 @@ export type AdvancedListBlock = {
       | ({
         _key: string
       } & AdvancedListBlock)
+      | ({
+        _key: string
+      } & TabBlock)
     >
     _type: 'listItem'
     _key: string
@@ -243,6 +334,9 @@ export type TwoColumnListBlock = {
       } & AdvancedImage)
       | ({
         _key: string
+      } & AdvancedListBlock)
+      | ({
+        _key: string
       } & ImageGridBlock)
     >
     _key: string
@@ -271,6 +365,9 @@ export type TwoColumnListBlock = {
       | ({
         _key: string
       } & AdvancedImage)
+      | ({
+        _key: string
+      } & AdvancedListBlock)
       | ({
         _key: string
       } & ImageGridBlock)
@@ -386,6 +483,9 @@ export type CallToActionBlock = {
     | ({
       _key: string
     } & AdvancedListBlock)
+    | ({
+      _key: string
+    } & TabBlock)
   >
   formDisplay?: 'inline' | 'modal'
   buttonText?: string
@@ -516,6 +616,9 @@ export type HeroBlock = {
     | ({
       _key: string
     } & AdvancedListBlock)
+    | ({
+      _key: string
+    } & TabBlock)
   >
   image?: {
     asset?: {
@@ -658,6 +761,9 @@ export type Bento2Block = {
     } & AdvancedImage)
     | ({
       _key: string
+    } & AdvancedListBlock)
+    | ({
+      _key: string
     } & ImageGridBlock)
   >
   left?: Array<
@@ -684,6 +790,9 @@ export type Bento2Block = {
     } & AdvancedImage)
     | ({
       _key: string
+    } & AdvancedListBlock)
+    | ({
+      _key: string
     } & ImageGridBlock)
   >
   right?: Array<
@@ -708,6 +817,9 @@ export type Bento2Block = {
     | ({
       _key: string
     } & AdvancedImage)
+    | ({
+      _key: string
+    } & AdvancedListBlock)
     | ({
       _key: string
     } & ImageGridBlock)
@@ -789,6 +901,9 @@ export type ContentBlock = {
     } & AdvancedImage)
     | ({
       _key: string
+    } & AdvancedListBlock)
+    | ({
+      _key: string
     } & ImageGridBlock)
   >
   align?: 'start' | 'center' | 'end'
@@ -841,6 +956,9 @@ export type CarouselBlock = {
       | ({
         _key: string
       } & AdvancedImage)
+      | ({
+        _key: string
+      } & AdvancedListBlock)
       | ({
         _key: string
       } & ImageGridBlock)
@@ -990,6 +1108,9 @@ export type BasicBlockContent = Array<
   } & AdvancedImage)
   | ({
     _key: string
+  } & AdvancedListBlock)
+  | ({
+    _key: string
   } & ImageGridBlock)
 >
 
@@ -1060,6 +1181,9 @@ export type BlockContent = Array<
   | ({
     _key: string
   } & AdvancedListBlock)
+  | ({
+    _key: string
+  } & TabBlock)
 >
 
 export type LandingPageContent = Array<
@@ -1111,6 +1235,9 @@ export type LandingPageContent = Array<
   | ({
     _key: string
   } & AdvancedListBlock)
+  | ({
+    _key: string
+  } & TabBlock)
 >
 
 export type Page = {
@@ -1258,6 +1385,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | TabBlock
   | AdvancedListBlock
   | ImageGridBlock
   | TwoColumnListBlock

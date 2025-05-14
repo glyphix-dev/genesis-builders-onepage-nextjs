@@ -15,6 +15,7 @@ import type {
   TestimonialBlock as TestimonialBlockType,
   TwoColumnListBlock as TwoColumnListBlockType,
   ImageGridBlock as ImageGridBlockType,
+  TabBlock as TabBlockType,
 } from "@/types/types.sanity";
 
 import type { IImageBlockProps } from "./ImageBlock";
@@ -36,8 +37,15 @@ import Block from "./Block";
 import TwoColumnList from "./TwoColumnList";
 import ImageGridBlock from "./ImageGridBlock";
 import AdvancedListBlock from "./AdvancedListBlock";
+import TabbedBlock from "./TabbedBlock";
+
 export const components = {
   types: {
+    tabBlock: ({ value }: { value: TabBlockType }) => {
+      return (
+        <TabbedBlock {...value} />
+      );
+    },
     advancedImage: ({ value }: { value: AdvancedImageBlockType }) => {
       return (
         <AdvancedImageBlock {...value} />
