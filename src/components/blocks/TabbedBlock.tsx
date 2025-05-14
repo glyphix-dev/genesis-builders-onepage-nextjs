@@ -7,8 +7,8 @@ import { urlForImage } from '@/sanity/lib/image';
 import type { Image as ImageType } from 'sanity';
 
 enum BlockThemeClasses {
-  default = 'border-3 border-accent',
-  filled = 'border-3 border-tertiary bg-tertiary',
+  default = 'border-3 border-tertiary',
+  filled = 'border-3 border-quaternary bg-quaternary',
 }
 export const TabbedBlock: React.FunctionComponent<TabBlock> = ({
   tabTitle,
@@ -24,9 +24,9 @@ export const TabbedBlock: React.FunctionComponent<TabBlock> = ({
       BlockThemeClasses[theme || 'default']
     )}>
       {tabTitle && <p className={cn(
-        "bg-accent px-3 py-1 absolute top-0 -left-[3px] text-secondary -translate-y-full -mt-[3px]",
+        "bg-tertiary px-3 py-1 absolute top-0 -left-[3px] -translate-y-full -mt-[3px]",
         "font-bold text-white text-base",
-        "border-3 border-accent",
+        "border-3 border-tertiary",
       )}>{tabTitle}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--block-padding)] items-start">
         <div className="flex gap-4">

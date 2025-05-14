@@ -10,8 +10,6 @@
   --color-black: var(--black);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-tertiary: var(--tertiary);
-  --color-tertiary-foreground: var(--tertiary-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -40,6 +38,10 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-quaternary-foreground: var(--quaternary-foreground);
+  --color-quaternary: var(--quaternary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
+  --color-tertiary: var(--tertiary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -69,14 +71,17 @@
   --secondary: oklch(0.57 0.0664 137.05);
   --secondary-foreground: oklch(100% 0 0);
 
+  --tertiary: oklch(0.43 0.0645 140.85);
+  --tertiary-foreground: oklch(0% 0 0);
+
+  --quaternary: oklch(0.86 0.0515 130.75);
+  --quaternary-foreground: oklch(0% 0 0);
+
   --muted: oklch(0.95 0.0243 77.46);
   --muted-foreground: oklch(0% 0 0);
 
-  --accent: oklch(0.43 0.0645 140.85);
+  --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0% 0 0);
-
-  --tertiary: oklch(0.86 0.0515 130.75);
-  --tertiary-foreground: oklch(0% 0 0);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
