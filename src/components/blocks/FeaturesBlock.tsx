@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import urlBuilder from '@sanity/image-url';
 const width = 150;
 const height = 150;
+import { buildFileUrl, getFile } from '@sanity/asset-utils';
 
 const columns = [
   "md:grid-cols-1",
@@ -77,6 +78,11 @@ const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (pro
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-[var(--block-padding)] items-start`}>
         {props.features?.map(async (feature: Feature) => {
           const imageUrl = feature.icon?.asset ? urlBuilder(client).image(feature.icon?.asset).width(576).height(352).fit('max').dpr(2).auto('format').url() : null;
+          const file = feature.file?.asset ? await getFile(feature.file.asset, {
+            baseUrl: 'https://cdn.sanity.io',
+            dataset: 'production',
+            projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+          }) : null;
           return (
             <div
               key={uuidv4()}
@@ -93,6 +99,13 @@ const ThumbnailFeatures: React.FunctionComponent<FeaturesBlockType> = async (pro
                 <div className="basis-1/3 mix-blend-normal">
                   <h3 className="text-center mt-0 text-balance text-xl text-white">{feature.title}</h3>
                   <p className="text-center text-base">{feature.description}</p>
+                  {file?.asset?.url && (
+                    <div className="text-center text-base text-white">
+                      <a href={file?.asset?.url} target="_blank" rel="noopener noreferrer" className='bg-white text-black px-2 py-1 rounded-md no-underline'>
+                        {feature.downloadText || 'Download'}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
