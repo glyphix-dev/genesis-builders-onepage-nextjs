@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import urlBuilder from '@sanity/image-url';
 const width = 150;
 const height = 150;
-import { buildFileUrl, getFile } from '@sanity/asset-utils';
+import { getFile } from '@sanity/asset-utils';
 
 const columns = [
   "md:grid-cols-1",
