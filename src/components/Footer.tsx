@@ -24,9 +24,9 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
         <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-4">
           <div className="flex gap-2 items-center">
             {showLogo && <Logo />}
-            <p>
-              ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved.<br />
-              <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link>
+            <p className="leading-loose">
+              ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved. <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link><br />
+              Genesis Builders LA operates under the Montage Development Inc. CLSB #738938. Expires on August 31, 2025.
             </p>
           </div>
           <nav className="flex items-center gap-4">
