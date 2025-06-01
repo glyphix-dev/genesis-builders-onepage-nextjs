@@ -26,7 +26,7 @@ const Footer: React.FunctionComponent<IFooterProps> = async ({ className, showLo
             {showLogo && <Logo />}
             <p className="leading-loose">
               ©{new Date().getFullYear()} {title || "Untitled"}. All rights reserved. <Link href="mailto:info@genesisbuildersla.com" className="underline">info@genesisbuildersla.com</Link><br />
-              Genesis Builders LA operates under the Montage Development Inc. CLSB #738938. Expires on August 31, 2025.
+              Genesis Builders LA operates under the Montage Development Inc. CSLB #738938. Expires on August 31, 2025.
             </p>
           </div>
           <nav className="flex items-center gap-4">
